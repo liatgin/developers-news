@@ -18,7 +18,7 @@ class PostsRouter {
    */
   private _configure() {
     this._router.get('/', (req: Request, res: Response, next: NextFunction) => {
-      res.status(200).json(this._controller.defaultMethod());
+      res.status(200).json(this._controller.get);
     });
   }
 }
