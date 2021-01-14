@@ -1,5 +1,8 @@
-import express, { Application, Router } from 'express';
+import express, { Request, Application, Router } from 'express';
+import session from 'express-session';
 import bodyParser from 'body-parser';
+import cookieParser from 'cookie-parser';
+import passport from 'passport';
 import MasterRouter from './routers/MasterRouter';
 import pool from './dbconfig/dbconnector';
 
@@ -16,6 +19,10 @@ class Server {
     private config() {
         this.app.use(bodyParser.urlencoded({ extended:true }));
         this.app.use(bodyParser.json({ limit: '1mb' })); // 100kb default
+        this.app.use(cookieParser());
+        this.app.use(passport.initialize());
+        this.app.use(passport.session());
+        this.app.use(session({secret: 'keyboard cat'}))
     }
 
     private dbConnect() {

@@ -1,11 +1,15 @@
 import { Router } from 'express';
 import PostsRouter from './posts/postsRouter';
 import UsersRouter from './users/usersRouter';
+import CommentsRouter from './comments/commentsRouter';
+import AuthRouter from './authentication/authRouter';
 
 class MasterRouter {
   private _router = Router();
-  private _subrouterA = PostsRouter;
-  private _subrouterB = UsersRouter;
+  private postsRouter = PostsRouter;
+  private usersRouter = UsersRouter;
+  private commentsRouter = CommentsRouter;
+  private authRouter = AuthRouter;
 
   get router() {
     return this._router;
@@ -19,8 +23,10 @@ class MasterRouter {
    * Connect routes to their matching routers.
    */
   private _configure() {
-    this._router.use('/posts', this._subrouterA);
-    this._router.use('/users', this._subrouterB);
+    this._router.use('/authentication', this.authRouter)
+    this._router.use('/posts', this.postsRouter);
+    this._router.use('/users', this.usersRouter);
+    this._router.use('/comments', this.commentsRouter);
   }
 }
 
