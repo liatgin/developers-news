@@ -17,8 +17,12 @@ class UsersRouter {
    * Connect routes to their matching controller endpoints.
    */
   private _configure() {
-    this._router.get('/', (req: Request, res: Response, next: NextFunction) => {
-      res.status(200).json(this._controller.get);
+    this._router.post('/newUser', (req: Request, res: Response, next: NextFunction) => {
+      res.status(200).json(this._controller.newUser);
+    });
+
+    this._router.post('/:id/newFavoritePost', (req: Request, res: Response, next: NextFunction) => {
+      res.status(200).json(this._controller.newFavoritePost);
     });
   }
 }
