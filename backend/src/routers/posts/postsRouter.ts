@@ -17,8 +17,9 @@ class PostsRouter {
    * Connect routes to their matching controller endpoints.
    */
   private _configure() {
-    this._router.get('/', (req: Request, res: Response, next: NextFunction) => {
-      res.status(200).json(this._controller.allPosts);
+    this._router.get('/', (req: Request, res: Response, next: NextFunction) => { 
+      console.log('inside posts')
+      this._controller.allPosts(req, res);
     });
 
     this._router.get('/:id/favorites', (req: Request, res: Response, next: NextFunction) => {

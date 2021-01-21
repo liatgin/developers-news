@@ -5,6 +5,7 @@ class PostsController {
     // get posts
     public async allPosts(req: any, res: any) {
         try {
+            console.log('before sql')
             const client = await pool.connect();
 
             const sql = `
@@ -13,12 +14,19 @@ class PostsController {
             `
             const { rows } = await client.query(sql);
             const allPosts = rows;
-
+            console.log('%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%', );
+            console.log(allPosts)
             client.release();
+            console.log('!!!!!!!!!!!!!!!!!!!!!!!!!! after realese before res');
+            res.header("Access-Control-Allow-Origin", "*");
+            res.header("Access-Control-Allow-Methods", "GET,HEAD,OPTIONS,POST,PUT");
+            res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, x-client-key, x-client-token, x-client-secret, Authorization");
+            res.status(200).json(allPosts);
+            console.log('!!!!!!!!!!!!!!!!!!!!!!!!!! after realese after res');
 
-            res.send(allPosts);
         } catch (error) {
-            res.status(400).send(error);
+          console.log('error is: ', error)
+          res.status(400).send(error);
         }
     }
 

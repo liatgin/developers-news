@@ -29,9 +29,9 @@ class Server {
         pool.connect(function (err: any) {
             if (err) throw new Error(err);
             console.log('Connected');
-          }); 
+        }); 
     }
-
+    
     private routerConfig() {
         this.app.use('/api', MasterRouter);
     }
