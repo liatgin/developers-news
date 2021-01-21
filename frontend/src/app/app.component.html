@@ -1,0 +1,21 @@
+<table class="table table-striped">
+  <tbody>
+    <tr *ngFor="let post of posts; index as i">
+      <th scope="row">{{ i + 1 }}</th>
+      <td>
+        <a href={{post.link}}> {{ post.title }}</a>
+        <br>
+        <div style="font-size: 10px;">
+          <span>by </span>
+          <a>{{getOwnerName(post.owner_id)}} </a>
+          <span>
+            <a>{{timeChangeFormat(post.time_written)}} </a>
+          </span>
+          |
+          <a onClick="getComments(post.post_id)">comments</a>
+        </div>
+      </td>
+      <br>
+    </tr>
+  </tbody>
+</table>
