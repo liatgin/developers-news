@@ -14,15 +14,12 @@ class PostsController {
             `
             const { rows } = await client.query(sql);
             const allPosts = rows;
-            console.log('%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%', );
-            console.log(allPosts)
+            console.log('%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%');
             client.release();
-            console.log('!!!!!!!!!!!!!!!!!!!!!!!!!! after realese before res');
             res.header("Access-Control-Allow-Origin", "*");
             res.header("Access-Control-Allow-Methods", "GET,HEAD,OPTIONS,POST,PUT");
             res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, x-client-key, x-client-token, x-client-secret, Authorization");
             res.status(200).json(allPosts);
-            console.log('!!!!!!!!!!!!!!!!!!!!!!!!!! after realese after res');
 
         } catch (error) {
           console.log('error is: ', error)
@@ -50,8 +47,11 @@ class PostsController {
           const favoritePosts = rows
 
           client.release();
+          res.header("Access-Control-Allow-Origin", "*");
+          res.header("Access-Control-Allow-Methods", "GET,HEAD,OPTIONS,POST,PUT");
+          res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, x-client-key, x-client-token, x-client-secret, Authorization");
 
-          res.send(favoritePosts);
+          res.status(200).json(favoritePosts);
       } catch (error) {
           res.status(400).send(error);
       }
@@ -65,14 +65,17 @@ class PostsController {
           const sql = `
             SELECT * 
             FROM posts
-            WHERE owner_id=?
+            WHERE owner_id=$1
           `
-          const { rows } = await client.query(sql, req.ownerID);
+          const { rows } = await client.query(sql, req.params.ownerID);
           const submissions = rows;
 
           client.release();
+          res.header("Access-Control-Allow-Origin", "*");
+          res.header("Access-Control-Allow-Methods", "GET,HEAD,OPTIONS,POST,PUT");
+          res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, x-client-key, x-client-token, x-client-secret, Authorization");
+          res.status(200).json(submissions);
 
-          res.send(submissions);
       } catch (error) {
           res.status(400).send(error);
       }
@@ -92,8 +95,11 @@ class PostsController {
           const newPost = rows;
 
           client.release();
+          res.header("Access-Control-Allow-Origin", "*");
+          res.header("Access-Control-Allow-Methods", "GET,HEAD,OPTIONS,POST,PUT");
+          res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, x-client-key, x-client-token, x-client-secret, Authorization");
+          res.status(200).json(newPost);
 
-          res.send(newPost);
       } catch (error) {
           res.status(400).send(error);
       }

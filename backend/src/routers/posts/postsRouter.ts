@@ -19,19 +19,19 @@ class PostsRouter {
   private _configure() {
     this._router.get('/', (req: Request, res: Response, next: NextFunction) => { 
       console.log('inside posts')
-      this._controller.allPosts(req, res);
+      this._controller.allPosts(req, res)
     });
 
-    this._router.get('/:id/favorites', (req: Request, res: Response, next: NextFunction) => {
-      res.status(200).json(this._controller.userFavorites);
+    this._router.get('/favorites/:id', (req: Request, res: Response, next: NextFunction) => {
+      this._controller.userFavorites(req, res)
     });
 
-    this._router.get('/:id/submissions', (req: Request, res: Response, next: NextFunction) => {
-      res.status(200).json(this._controller.userSubmissions);
+    this._router.get('/submissions/:id', (req: Request, res: Response, next: NextFunction) => {
+      this._controller.userSubmissions(req, res)
     });
 
     this._router.post('/:id/', (req: Request, res: Response, next: NextFunction) => {
-      res.status(200).json(this._controller.addPost);
+      this._controller.addPost(req, res)
     });
   }
 }

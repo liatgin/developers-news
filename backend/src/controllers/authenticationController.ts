@@ -24,10 +24,10 @@ class AuthenticationController {
               `
               const { rows } = await client.query(insertNewUserSQL, [uuid(), req.body.usr_name, req.body.password, req.body.about, Date.now(), req.body.favorites]);
               const newUser = rows
-              res.send(newUser);
+              res.status(200).json(newUser);
           }
           else {
-              res.send('error occured')
+            res.status(400).json('error occured')
           }
 
           client.release();
@@ -42,8 +42,8 @@ class AuthenticationController {
     public async login(req: Request, res: any) {
       try {
         if (req.isAuthenticated()) {
-			res.redirect('/account');
-		}
+			    res.redirect('/account');
+		    }
 
       } catch (error) {
           res.status(400).send(error);
@@ -66,8 +66,11 @@ class AuthenticationController {
           const userDetails = rows;
   
           client.release();
-  
+          res.header("Access-Control-Allow-Origin", "*");
+          res.header("Access-Control-Allow-Methods", "GET,HEAD,OPTIONS,POST,PUT");
+          res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, x-client-key, x-client-token, x-client-secret, Authorization");
           res.send(userDetails);
+
           }
   
         } catch (error) {

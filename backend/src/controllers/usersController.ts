@@ -15,8 +15,11 @@ class UsersController {
           const newUser = rows;
 
           client.release();
+          res.header("Access-Control-Allow-Origin", "*");
+          res.header("Access-Control-Allow-Methods", "GET,HEAD,OPTIONS,POST,PUT");
+          res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, x-client-key, x-client-token, x-client-secret, Authorization");
+          res.status(200).json(newUser);
 
-          res.send(newUser);
       } catch (error) {
           res.status(400).send(error);
       }
@@ -36,8 +39,11 @@ class UsersController {
           const newFavorite = rows;
 
           client.release();
-
-          res.send(newFavorite);
+          res.header("Access-Control-Allow-Origin", "*");
+          res.header("Access-Control-Allow-Methods", "GET,HEAD,OPTIONS,POST,PUT");
+          res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, x-client-key, x-client-token, x-client-secret, Authorization");
+          res.status(200).json(newFavorite);
+          
       } catch (error) {
           res.status(400).send(error);
       }

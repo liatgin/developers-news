@@ -18,11 +18,11 @@ class UsersRouter {
    */
   private _configure() {
     this._router.post('/newUser', (req: Request, res: Response, next: NextFunction) => {
-      res.status(200).json(this._controller.newUser);
+      this._controller.newUser(req, res)
     });
 
-    this._router.post('/:id/newFavoritePost', (req: Request, res: Response, next: NextFunction) => {
-      res.status(200).json(this._controller.newFavoritePost);
+    this._router.post('/newFavoritePost/:id', (req: Request, res: Response, next: NextFunction) => {
+      this._controller.newFavoritePost(req, res)
     });
   }
 }

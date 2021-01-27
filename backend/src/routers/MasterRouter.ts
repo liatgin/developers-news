@@ -24,7 +24,6 @@ class MasterRouter {
    */
   private _configure() {
     this._router.use('/authentication', this.authRouter)
-    console.log('inside master router')
     this._router.use('/posts', this.postsRouter);
     this._router.use('/users', this.usersRouter);
     this._router.use('/comments', this.commentsRouter);

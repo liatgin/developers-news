@@ -10,15 +10,17 @@ class CommnetsController {
             const sql = `
                 SELECT * 
                 FROM comments
-                WHERE owner_id=?
+                WHERE owner_id=$1
             `
-
-            const { rows } = await client.query(sql, [req.id]);
+            const { rows } = await client.query(sql, [req.params.id]);
             const comments = rows;
 
             client.release();
+            res.header("Access-Control-Allow-Origin", "*");
+            res.header("Access-Control-Allow-Methods", "GET,HEAD,OPTIONS,POST,PUT");
+            res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, x-client-key, x-client-token, x-client-secret, Authorization");
+            res.status(200).json(comments);
 
-            res.send(comments);
         } catch (error) {
             res.status(400).send(error);
         }
@@ -28,18 +30,22 @@ class CommnetsController {
     // get comments of a specific post
     public async postComments(req: any, res: any) {
       try {
-          const client = await pool.connect();
-          const sql = `
-            SELECT * 
-            FROM comments
-            WHERE post_id=?
-          `
-          const { rows } = await client.query(sql, [req.id]);
-          const comment = rows;
+        console.log('inside comment $$$$$$$$$$$$$$$$')
+        const client = await pool.connect();
+        const sql = `
+          SELECT * 
+          FROM comments
+          WHERE post_id=$1
+        `
+        const { rows } = await client.query(sql, [req.params.id]);
+        const comments = rows;
 
-          client.release();
+        client.release();
+        res.header("Access-Control-Allow-Origin", "*");
+        res.header("Access-Control-Allow-Methods", "GET,HEAD,OPTIONS,POST,PUT");
+        res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, x-client-key, x-client-token, x-client-secret, Authorization");
+        res.status(200).json(comments);
 
-          res.send(comment);
       } catch (error) {
           res.status(400).send(error);
       }
@@ -58,8 +64,11 @@ class CommnetsController {
           const comment = rows;
 
           client.release();
+          res.header("Access-Control-Allow-Origin", "*");
+          res.header("Access-Control-Allow-Methods", "GET,HEAD,OPTIONS,POST,PUT");
+          res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, x-client-key, x-client-token, x-client-secret, Authorization");
+          res.status(200).json(comment);
 
-          res.send(comment);
       } catch (error) {
           res.status(400).send(error);
       }

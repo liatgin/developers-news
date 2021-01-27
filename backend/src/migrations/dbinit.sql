@@ -4,41 +4,42 @@ CREATE TABLE posts
     link text NOT NULL,
     time_written DATE NOT NULL,
     owner_id uuid NOT NULL,
+    owner_name text,
     title text NOT NULL
 );
 
-INSERT INTO posts(post_id, link, time_written, owner_id, title) 
-VALUES ('0e37df36-f698-11e6-8dd4-cb9ced3df971', 'https://www.severe-weather.eu/global-weather/polar-vortex-collapse-winter-weather-europe-united-states-2021-fa/', '2020-01-08', 'a81bc81b-dead-4e5d-abff-90865d1e13b1', 'Severe weather Europe');
+INSERT INTO posts(post_id, link, time_written, owner_id, owner_name, title) 
+VALUES ('0e37df36-f698-11e6-8dd4-cb9ced3df971', 'https://www.severe-weather.eu/global-weather/polar-vortex-collapse-winter-weather-europe-united-states-2021-fa/', '2020-01-08', 'a81bc81b-dead-4e5d-abff-90865d1e13b1', 'SQLqueen', 'Severe weather Europe');
 
-INSERT INTO posts(post_id, link , time_written, owner_id, title) 
-VALUES ('0e37df36-f698-11e6-8dd4-cb9ced3df972', 'https://www.ecosia.org/', '2019-01-08', 'a81bc81b-dead-4e5d-abff-90865d1e13b1', 'Here They Come');
+INSERT INTO posts(post_id, link , time_written, owner_id, owner_name, title) 
+VALUES ('0e37df36-f698-11e6-8dd4-cb9ced3df972', 'https://www.ecosia.org/', '2019-01-08', 'a81bc81b-dead-4e5d-abff-90865d1e13b1', 'SQLqueen', 'Here They Come');
 
-INSERT INTO posts(post_id, link , time_written, owner_id, title) 
-VALUES ('0e37df36-f698-11e6-8dd4-cb9ced3df973', 'https://www.gmo.com/asia/research-library/waiting-for-the-last-dance', '2017-01-08', 'a81bc81b-dead-4e5d-abff-90865d1e13b6', 'Its already here');
+INSERT INTO posts(post_id, link , time_written, owner_id, owner_name, title) 
+VALUES ('0e37df36-f698-11e6-8dd4-cb9ced3df973', 'https://www.gmo.com/asia/research-library/waiting-for-the-last-dance', '2017-01-08', 'a81bc81b-dead-4e5d-abff-90865d1e13b6', 'hacker1991', 'Its already here');
 
-INSERT INTO posts(post_id, link , time_written, owner_id, title) 
-VALUES ('0e37df36-f698-11e6-8dd4-cb9ced3df974', 'https://bugzilla.mozilla.org/show_bug.cgi?id=1682995', '2020-01-09', 'a81bc81b-dead-4e5d-abff-90865d1e13b6', 'New Year New Hope');
+INSERT INTO posts(post_id, link , time_written, owner_id, owner_name, title) 
+VALUES ('0e37df36-f698-11e6-8dd4-cb9ced3df974', 'https://bugzilla.mozilla.org/show_bug.cgi?id=1682995', '2020-01-09', 'a81bc81b-dead-4e5d-abff-90865d1e13b6', 'hacker1991', 'New Year New Hope');
 
-INSERT INTO posts(post_id, link, time_written, owner_id, title) 
-VALUES ('0e37df36-f698-11e6-8dd4-cb9ced3df975', 'https://siasky.net/', '2019-02-08', 'a81bc81b-dead-4e5d-abff-90865d1e13b2', 'Build a free Internet');
+INSERT INTO posts(post_id, link, time_written, owner_id, owner_name, title) 
+VALUES ('0e37df36-f698-11e6-8dd4-cb9ced3df975', 'https://siasky.net/', '2019-02-08', 'a81bc81b-dead-4e5d-abff-90865d1e13b2', 'cocoMan23', 'Build a free Internet');
 
-INSERT INTO posts(post_id, link, time_written, owner_id, title) 
-VALUES ('0e37df36-f698-11e6-8dd4-cb9ced3df976', 'https://usbq.org/', '2018-03-08', 'a81bc81b-dead-4e5d-abff-90865d1e13b2', 'USBQ Toolkit');
+INSERT INTO posts(post_id, link, time_written, owner_id, owner_name, title) 
+VALUES ('0e37df36-f698-11e6-8dd4-cb9ced3df976', 'https://usbq.org/', '2018-03-08', 'a81bc81b-dead-4e5d-abff-90865d1e13b2', 'cocoMan23', 'USBQ Toolkit');
 
-INSERT INTO posts(post_id, link, time_written, owner_id, title) 
-VALUES ('0e37df36-f698-11e6-8dd4-cb9ced3df977', 'https://www.linux.org/threads/common-pronunciations-of-linux-directories-commands-etc.4445/', '2020-04-08', 'a81bc81b-dead-4e5d-abff-90865d1e13b3', 'Linux');
+INSERT INTO posts(post_id, link, time_written, owner_id, owner_name, title) 
+VALUES ('0e37df36-f698-11e6-8dd4-cb9ced3df977', 'https://www.linux.org/threads/common-pronunciations-of-linux-directories-commands-etc.4445/', '2020-04-08', 'a81bc81b-dead-4e5d-abff-90865d1e13b3', 'pug&bug', 'Linux');
 
-INSERT INTO posts(post_id, link, time_written, owner_id, title) 
-VALUES ('0e37df36-f698-11e6-8dd4-cb9ced3df978', 'https://avinayak.github.io/art/2021/01/09/noise-planets.html', '2020-07-08', 'a81bc81b-dead-4e5d-abff-90865d1e13b3', 'Noise Planets');
+INSERT INTO posts(post_id, link, time_written, owner_id, owner_name, title) 
+VALUES ('0e37df36-f698-11e6-8dd4-cb9ced3df978', 'https://avinayak.github.io/art/2021/01/09/noise-planets.html', '2020-07-08', 'a81bc81b-dead-4e5d-abff-90865d1e13b3', 'pug&bug', 'Noise Planets');
 
-INSERT INTO posts(post_id, link, time_written, owner_id, title) 
-VALUES ('0e37df36-f698-11e6-8dd4-cb9ced3df979', 'https://www.state.gov/the-clean-network/', '2020-05-08', 'a81bc81b-dead-4e5d-abff-90865d1e13b4', 'The Clean Network');
+INSERT INTO posts(post_id, link, time_written, owner_id, owner_name, title) 
+VALUES ('0e37df36-f698-11e6-8dd4-cb9ced3df979', 'https://www.state.gov/the-clean-network/', '2020-05-08', 'a81bc81b-dead-4e5d-abff-90865d1e13b4', 'lll1999', 'The Clean Network');
 
-INSERT INTO posts(post_id, link, time_written, owner_id, title) 
-VALUES ('0e37df36-f698-11e6-8dd4-cb9ced3df970', 'https://queue.acm.org/detail.cfm?ref=rss&id=3446917', '2018-04-08', 'a81bc81b-dead-4e5d-abff-90865d1e13b4', 'acm queue');
+INSERT INTO posts(post_id, link, time_written, owner_id, owner_name, title) 
+VALUES ('0e37df36-f698-11e6-8dd4-cb9ced3df970', 'https://queue.acm.org/detail.cfm?ref=rss&id=3446917', '2018-04-08', 'a81bc81b-dead-4e5d-abff-90865d1e13b4', 'lll1999', 'acm queue');
 
-INSERT INTO posts(post_id, link, time_written, owner_id, title) 
-VALUES ('0e37df36-f698-11e6-8dd4-cb9ced3df911', 'https://danielbmarkham.com/the-platform-is-the-enemy/', '2019-09-08', 'a81bc81b-dead-4e5d-abff-90865d1e13b5', 'This Platform Is The Enemy');
+INSERT INTO posts(post_id, link, time_written, owner_id, owner_name, title) 
+VALUES ('0e37df36-f698-11e6-8dd4-cb9ced3df911', 'https://danielbmarkham.com/the-platform-is-the-enemy/', '2019-09-08', 'a81bc81b-dead-4e5d-abff-90865d1e13b5', 'Abigooligool', 'This Platform Is The Enemy');
 
 CREATE TABLE users
 (
@@ -74,6 +75,7 @@ CREATE TABLE comments
     comment_id uuid NOT NULL,
     post_id uuid NOT NULL,
     owner_id uuid NOT NULL,
+    owner_name text,
     comment text NOT NULL,
     post_title text NOT NULL,
     time_of_creation DATE NOT NULL,
@@ -81,35 +83,35 @@ CREATE TABLE comments
     src_comment_id uuid
 );
 
-INSERT INTO comments(comment_id, post_id, owner_id, comment, post_title, time_of_creation, comment_to, src_comment_id) 
-VALUES ('a81bc81b-dead-4e5d-abff-90865d1e13b1', '0e37df36-f698-11e6-8dd4-cb9ced3df971', 'a81bc81b-dead-4e5d-abff-90865d1e13b1', 'Great post', 'Severe weather Europe', '2021-01-01', 'post', NULL);
+INSERT INTO comments(comment_id, post_id, owner_id, owner_name, comment, post_title, time_of_creation, comment_to, src_comment_id) 
+VALUES ('a81bc81b-dead-4e5d-abff-90865d1e13b1', '0e37df36-f698-11e6-8dd4-cb9ced3df971', 'a81bc81b-dead-4e5d-abff-90865d1e13b1', 'Sami', 'Great post', 'Severe weather Europe', '2021-01-01', 'post', NULL);
 
-INSERT INTO comments(comment_id, post_id, owner_id, comment, post_title, time_of_creation, comment_to, src_comment_id) 
-VALUES ('b81bc81b-dead-4e5d-abff-90865d1e13b2', '0e37df36-f698-11e6-8dd4-cb9ced3df972', 'a81bc81b-dead-4e5d-abff-90865d1e13b1', 'Thank you for sharing', 'Here They Come', '2021-01-01', 'post', NULL);
+INSERT INTO comments(comment_id, post_id, owner_id, owner_name, comment, post_title, time_of_creation, comment_to, src_comment_id) 
+VALUES ('b81bc81b-dead-4e5d-abff-90865d1e13b2', '0e37df36-f698-11e6-8dd4-cb9ced3df972', 'a81bc81b-dead-4e5d-abff-90865d1e13b1', 'Danny zukko', 'Thank you for sharing', 'Here They Come', '2021-01-01', 'post', NULL);
 
-INSERT INTO comments(comment_id, post_id, owner_id, comment, post_title, time_of_creation, comment_to, src_comment_id) 
-VALUES ('c81bc81b-dead-4e5d-abff-90865d1e13b3', '0e37df36-f698-11e6-8dd4-cb9ced3df972', 'a81bc81b-dead-4e5d-abff-90865d1e13b4', 'I learnt something new, tnx', 'Here They Come', '2021-01-01', 'comment', 'b81bc81b-dead-4e5d-abff-90865d1e13b2');
+INSERT INTO comments(comment_id, post_id, owner_id, ow0e37df36-f698-11e6-8dd4-cb9ced3df973ner_name, comment, post_title, time_of_creation, comment_to, src_comment_id) 
+VALUES ('c81bc81b-dead-4e5d-abff-90865d1e13b3', '0e37df36-f698-11e6-8dd4-cb9ced3df972', 'a81bc81b-dead-4e5d-abff-90865d1e13b4', 'Ali Mackbil', 'I learnt something new, tnx', 'Here They Come', '2021-01-01', 'comment', 'b81bc81b-dead-4e5d-abff-90865d1e13b2');
 
-INSERT INTO comments(comment_id, post_id, owner_id, comment, post_title, time_of_creation, comment_to, src_comment_id) 
-VALUES ('d81bc81b-dead-4e5d-abff-90865d1e13b4', '0e37df36-f698-11e6-8dd4-cb9ced3df972', 'a81bc81b-dead-4e5d-abff-90865d1e13b3', 'I disagree with the article but interesting point of view', 'Here They Come', '2021-01-01', 'comment', 'b81bc81b-dead-4e5d-abff-90865d1e13b2');
+INSERT INTO comments(comment_id, post_id, owner_id, owner_name, comment, post_title, time_of_creation, comment_to, src_comment_id) 
+VALUES ('d81bc81b-dead-4e5d-abff-90865d1e13b4', '0e37df36-f698-11e6-8dd4-cb9ced3df972', 'a81bc81b-dead-4e5d-abff-90865d1e13b3', 'Dalay Lama', 'I disagree with the article but interesting point of view', 'Here They Come', '2021-01-01', 'comment', 'b81bc81b-dead-4e5d-abff-90865d1e13b2');
 
-INSERT INTO comments(comment_id, post_id, owner_id, comment, post_title, time_of_creation, comment_to, src_comment_id) 
-VALUES ('e81bc81b-dead-4e5d-abff-90865d1e13b5', '0e37df36-f698-11e6-8dd4-cb9ced3df972', 'a81bc81b-dead-4e5d-abff-90865d1e13b5', 'Awesome news!', 'Here They Come', '2021-01-01', 'comment', 'b81bc81b-dead-4e5d-abff-90865d1e13b2');
+INSERT INTO comments(comment_id, post_id, owner_id, owner_name, comment, post_title, time_of_creation, comment_to, src_comment_id) 
+VALUES ('e81bc81b-dead-4e5d-abff-90865d1e13b5', '0e37df36-f698-11e6-8dd4-cb9ced3df972', 'a81bc81b-dead-4e5d-abff-90865d1e13b5', 'Ervin', 'Awesome news!', 'Here They Come', '2021-01-01', 'comment', 'b81bc81b-dead-4e5d-abff-90865d1e13b2');
 
-INSERT INTO comments(comment_id, post_id, owner_id, comment, post_title, time_of_creation, comment_to, src_comment_id) 
-VALUES ('f81bc81b-dead-4e5d-abff-90865d1e13b6', '0e37df36-f698-11e6-8dd4-cb9ced3df911', 'a81bc81b-dead-4e5d-abff-90865d1e13b4', 'Very interesting', 'This Platform Is The Enemy', '2021-01-01', 'post', NULL);
+INSERT INTO comments(comment_id, post_id, owner_id, owner_name, comment, post_title, time_of_creation, comment_to, src_comment_id) 
+VALUES ('f81bc81b-dead-4e5d-abff-90865d1e13b6', '0e37df36-f698-11e6-8dd4-cb9ced3df911', 'a81bc81b-dead-4e5d-abff-90865d1e13b4', 'Trump', 'Very interesting', 'This Platform Is The Enemy', '2021-01-01', 'post', NULL);
 
-INSERT INTO comments(comment_id, post_id, owner_id, comment, post_title, time_of_creation, comment_to, src_comment_id) 
-VALUES ('b81bc81b-dead-4e5d-abff-90865d1e13b7', '0e37df36-f698-11e6-8dd4-cb9ced3df911', 'a81bc81b-dead-4e5d-abff-90865d1e13b2', 'Thanks', 'This Platform Is The Enemy', '2021-01-01', 'comment', 'f81bc81b-dead-4e5d-abff-90865d1e13b6');
+INSERT INTO comments(comment_id, post_id, owner_id, owner_name, comment, post_title, time_of_creation, comment_to, src_comment_id) 
+VALUES ('b81bc81b-dead-4e5d-abff-90865d1e13b7', '0e37df36-f698-11e6-8dd4-cb9ced3df911', 'a81bc81b-dead-4e5d-abff-90865d1e13b2', 'Violino', 'Thanks', 'This Platform Is The Enemy', '2021-01-01', 'comment', 'f81bc81b-dead-4e5d-abff-90865d1e13b6');
 
-INSERT INTO comments(comment_id, post_id, owner_id, comment, post_title, time_of_creation, comment_to, src_comment_id) 
-VALUES ('a81bc81b-dead-4e5d-abff-90865d1e13b8', '0e37df36-f698-11e6-8dd4-cb9ced3df911', 'a81bc81b-dead-4e5d-abff-90865d1e13b6', 'Wow', 'This Platform Is The Enemy', '2021-01-01', 'comment', 'b81bc81b-dead-4e5d-abff-90865d1e13b7');
+INSERT INTO comments(comment_id, post_id, owner_id, owner_name, comment, post_title, time_of_creation, comment_to, src_comment_id) 
+VALUES ('a81bc81b-dead-4e5d-abff-90865d1e13b8', '0e37df36-f698-11e6-8dd4-cb9ced3df911', 'a81bc81b-dead-4e5d-abff-90865d1e13b6', 'TamTam', 'Wow', 'This Platform Is The Enemy', '2021-01-01', 'comment', 'b81bc81b-dead-4e5d-abff-90865d1e13b7');
 
-INSERT INTO comments(comment_id, post_id, owner_id, comment, post_title, time_of_creation, comment_to, src_comment_id) 
-VALUES ('a81bc81b-dead-4e5d-abff-90865d1e13b9', '0e37df36-f698-11e6-8dd4-cb9ced3df976', 'a81bc81b-dead-4e5d-abff-90865d1e13b1', 'SHIGAON', 'USBQ Toolkit', '2020-01-01', 'post', NULL);
+INSERT INTO comments(comment_id, post_id, owner_id, owner_name, comment, post_title, time_of_creation, comment_to, src_comment_id) 
+VALUES ('a81bc81b-dead-4e5d-abff-90865d1e13b9', '0e37df36-f698-11e6-8dd4-cb9ced3df976', 'a81bc81b-dead-4e5d-abff-90865d1e13b1', 'Romy', 'SHIGAON', 'USBQ Toolkit', '2020-01-01', 'post', NULL);
 
-INSERT INTO comments(comment_id, post_id, owner_id, comment, post_title, time_of_creation, comment_to, src_comment_id) 
-VALUES ('a81bc81b-dead-4e5d-abff-90865d1e1399', '0e37df36-f698-11e6-8dd4-cb9ced3df979', 'a81bc81b-dead-4e5d-abff-90865d1e13b4', 'LOL', 'The Clean Network', '2021-01-01', 'post', NULL);
+INSERT INTO comments(comment_id, post_id, owner_id, owner_name, comment, post_title, time_of_creation, comment_to, src_comment_id) 
+VALUES ('a81bc81b-dead-4e5d-abff-90865d1e1399', '0e37df36-f698-11e6-8dd4-cb9ced3df979', 'a81bc81b-dead-4e5d-abff-90865d1e13b4', 'Moses', 'LOL', 'The Clean Network', '2021-01-01', 'post', NULL);
 
-INSERT INTO comments(comment_id, post_id, owner_id, comment, post_title, time_of_creation, comment_to, src_comment_id) 
-VALUES ('a81bc81b-dead-4e5d-abff-90865d1e1312', '0e37df36-f698-11e6-8dd4-cb9ced3df970', 'a81bc81b-dead-4e5d-abff-90865d1e13b3', 'IT WAS BORING', 'acm queue', '2021-01-01', 'post', NULL);
+INSERT INTO comments(comment_id, post_id, owner_id, owner_name, comment, post_title, time_of_creation, comment_to, src_comment_id) 
+VALUES ('a81bc81b-dead-4e5d-abff-90865d1e1312', '0e37df36-f698-11e6-8dd4-cb9ced3df970', 'a81bc81b-dead-4e5d-abff-90865d1e13b3', 'Alfonso', 'IT WAS BORING', 'acm queue', '2021-01-01', 'post', NULL);
