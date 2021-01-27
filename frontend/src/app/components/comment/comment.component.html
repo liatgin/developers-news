@@ -1,0 +1,12 @@
+<th scope="row">{{ commentIndex + 1 }}</th>
+<td>
+  <div style="font-size: 10px;">
+    <span>{{comment.owner_name}} </span>
+    <span>
+      <a>{{timeChangeFormat(comment.time_of_creation)}} </a>
+    </span>
+  </div>
+  <br>
+  <p>{{comment.comment}}</p>
+</td>
+<br>

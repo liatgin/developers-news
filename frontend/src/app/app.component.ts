@@ -1,15 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from './api.service';
-import * as moment from 'moment'
+import { Post } from './components/post/post.component';
 
-
-export interface Post {
-  post_id: string;
-  link: string;
-  title: string;
-  owner_id: string;
-  time_written: string;
-} 
 
 @Component({
   selector: 'app-root',
@@ -18,30 +10,18 @@ export interface Post {
 })
 export class AppComponent implements OnInit {
   posts: Post[]
+  active = 1
 
   constructor(private httpService: ApiService) {}
 
   ngOnInit() {
+    console.log('inside app')
       this.httpService.getPosts()
         .subscribe((data) => {
-          console.log('received data:')
+          console.log('posts:')
           console.log(data)
           this.posts = JSON.parse(data)
           console.log(this.posts)
         })
   }
-
-  timeChangeFormat(date: Date) {
-    return moment(date).fromNow()
-  }
-
-  getOwnerName(ownerId) {
-    return 'Danny Zukko'
-  }
-
-  getComments(postId) {
-
-  }
-
-  
 }

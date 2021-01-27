@@ -1,0 +1,7 @@
+<table class="table table-striped">
+    <tbody>
+      <tr *ngFor="let comment of comments; index as i">
+        <app-comment [comment]=comment [commentIndex]=i></app-comment>
+      </tr>
+    </tbody>
+</table>

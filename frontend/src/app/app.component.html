@@ -1,21 +1,50 @@
-<table class="table table-striped">
-  <tbody>
-    <tr *ngFor="let post of posts; index as i">
-      <th scope="row">{{ i + 1 }}</th>
-      <td>
-        <a href={{post.link}}> {{ post.title }}</a>
-        <br>
-        <div style="font-size: 10px;">
-          <span>by </span>
-          <a>{{getOwnerName(post.owner_id)}} </a>
-          <span>
-            <a>{{timeChangeFormat(post.time_written)}} </a>
-          </span>
-          |
-          <a onClick="getComments(post.post_id)">comments</a>
-        </div>
-      </td>
-      <br>
-    </tr>
-  </tbody>
-</table>
+<ul style="background-color: orange;" ngbNav #nav="ngbNav" [(activeId)]="active" class="nav-tabs">
+  <li [ngbNavItem]="1">
+    <a style="background-color: orange;" ngbNavLink>Developers News</a>
+    <ng-template ngbNavContent>
+      <table class="table table-striped">
+        <tbody>
+          <tr *ngFor="let post of posts; index as i">
+            <app-post [post]=post [postIndex]=i></app-post>
+          </tr>
+        </tbody>
+      </table>
+    </ng-template>
+  </li>
+  <li [ngbNavItem]="2">
+    <a style="background-color: orange;" ngbNavLink>Comments</a>
+    <ng-template ngbNavContent>
+      <p>
+        Exercitation +1 labore velit, blog sartorial PBR leggings next level wes anderson artisan four loko
+      </p>
+    </ng-template>
+  </li>
+  <li [ngbNavItem]="3">
+    <a style="background-color: orange;"ngbNavLink>Submit</a>
+    <ng-template ngbNavContent>
+      <p>
+        Sed commodo, leo at suscipit dictum, quam est porttitor sapien, eget sodales nibh elit id diam. Nulla facilisi.
+      </p>
+    </ng-template>
+  </li>
+  <li [ngbNavItem]="4" class="nav-item ml-auto">
+    <a style="background-color: orange;" ngbNavLink class="nav-link" data-toggle="tab" href="#tab22" role="tab">Login</a>
+    <ng-template ngbNavContent>
+      <p>
+       odales nibh elit id diam. Nulla facilisi.
+      </p>
+    </ng-template>
+  </li>
+  <li [ngbNavItem]="5"class="nav-item">
+    <a style="background-color: orange;" ngbNavLink class="nav-link" data-toggle="tab" href="#tab33" role="tab">Logout</a>
+    <ng-template ngbNavContent>
+      <p>
+        Sed commodo, leo at suscipit dictum, quam est porttitor sapien
+      </p>
+    </ng-template>
+  </li>
+</ul>
+
+<div [ngbNavOutlet]="nav" class="mt-2"></div>
+
+<router-outlet></router-outlet>

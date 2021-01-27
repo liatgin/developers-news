@@ -1,1 +1,20 @@
-<p>post works!</p>
+<th scope="row">{{ postIndex + 1 }}</th>
+<td>
+  <a href={{post.link}}> {{ post.title }}</a>
+  <br>
+  <div style="font-size: 10px;">
+    <span>by </span>
+    <a>{{post.owner_name}} </a>
+    <span>
+      <a>{{timeChangeFormat(post.time_written)}} </a>
+    </span>
+    |
+    <span (click)='commentsRedirect()'>comments</span>
+  </div>
+</td>
+<br>
+
+<router-outlet></router-outlet>
+
+
+
