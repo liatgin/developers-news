@@ -25,7 +25,7 @@ export class CommentsComponent implements OnInit {
 
   getComments(postId) {
     console.log('this.postId', postId)
-    this.httpService.getCommentsById(postId)
+    this.httpService.postComments(postId)
         .subscribe((data) => {
           console.log('comments:')
           console.log(data)

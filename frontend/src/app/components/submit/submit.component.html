@@ -1,0 +1,13 @@
+<form [formGroup]="postForm" (ngSubmit)="onSubmitPost()" class="example-form">
+    <mat-form-field class="example-full-width">
+        <mat-label>Title</mat-label>
+        <input id='title' type='text' matInput formControlName="title">
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+        <mat-label>Url</mat-label>
+        <input id='url' type='text' matInput formControlName="url">
+    </mat-form-field>
+
+    <button class="button" type="submit" mat-raised-button color="primary">Submit</button>
+</form>

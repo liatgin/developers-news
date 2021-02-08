@@ -4,12 +4,12 @@
   <br>
   <div style="font-size: 10px;">
     <span>by </span>
-    <a>{{post.owner_name}} </a>
+    <a style="cursor: pointer" (click)='userPageRedirect()'>{{post.owner_name}} </a>
     <span>
       <a>{{timeChangeFormat(post.time_written)}} </a>
     </span>
     |
-    <span (click)='commentsRedirect()'>comments</span>
+    <span style="cursor: pointer" (click)='commentsRedirect()'>comments</span>
   </div>
 </td>
 <br>

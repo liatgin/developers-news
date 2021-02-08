@@ -1,1 +1,42 @@
-<p>user-page works!</p>
+<mat-card class="example-card">
+  <mat-list *ngIf='isUserPage'>
+      <mat-list-item style="margin-right: 1em;">User: {{user && user.usr_name}} </mat-list-item>
+      <mat-divider></mat-divider>
+      <mat-list-item>Created: {{user && user.time_of_creation}} </mat-list-item>
+      <mat-divider></mat-divider>
+      <mat-list-item>About: "{{user && user.about}}" </mat-list-item>
+      <mat-divider></mat-divider>
+      <button mat-button color="primary" (click)="getSubmissions()">Submissions</button>
+      <br>
+      <button mat-button color="primary" (click)="getComments()">Comments</button>
+      <br>
+      <button mat-button color="primary" (click)="getFavorites()">Favorites</button>
+  </mat-list>
+  
+  <!-- comments display -->
+  <table *ngIf="isCommentsPage" class="table table-striped">
+      <tbody>
+          <tr *ngFor="let comment of comments; index as i">
+          <app-comment [comment]=comment [commentIndex]=i></app-comment>
+          </tr>
+      </tbody>
+  </table>
+  
+  <!-- user submissions display -->
+  <table *ngIf=isSubmissionsPage class="table table-striped">
+      <tbody>
+        <tr *ngFor="let post of submissions; index as i">
+          <app-post (userPageEvent)=getUserPage() (commentsEvent)=getComments() [post]=post [postIndex]=i></app-post>
+        </tr>
+      </tbody>
+  </table>
+  
+  <!-- user favorites display -->
+  <table *ngIf=isFavoritesPage class="table table-striped">
+      <tbody>
+        <tr *ngFor="let post of favorites; index as i">
+          <app-post (userPageEvent)=getUserPage() (commentsEvent)=getComments() [post]=post [postIndex]=i></app-post>
+        </tr>
+      </tbody>
+  </table>
+</mat-card>

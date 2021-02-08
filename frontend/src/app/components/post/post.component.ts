@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, Output,  EventEmitter, OnInit } from '@angular/core';
 import * as moment from 'moment';
 import { Router, ActivatedRoute, ParamMap, NavigationExtras } from '@angular/router';
 
@@ -21,7 +21,8 @@ export class PostComponent implements OnInit {
 
   @Input() post
   @Input() postIndex
-  isPostPage = true
+  @Output() commentsEvent = new EventEmitter<string>();
+  @Output() userPageEvent = new EventEmitter<string>();
 
   constructor(private router: Router) { }
 
@@ -33,8 +34,15 @@ export class PostComponent implements OnInit {
   }
 
   commentsRedirect() {
-    console.log('redirect to comments', this.post.post_id, this.router.parseUrl(this.router.url))
-    this.router.navigate(['comments'], {queryParams: {postId: this.post.post_id}})
+    console.log('redirect to comments', this.post.post_id)
+    this.commentsEvent.emit(this.post.post_id);
+    // this.hideEvent.emit(true);
+    // this.router.navigate(['comments'], {queryParams: {postId: this.post.post_id}})
+  }
+
+  userPageRedirect() {
+    console.log('redirect to userPage', this.post.owner_name)
+    this.userPageEvent.emit(this.post.owner_name);
   }
 
 
