@@ -22,15 +22,7 @@ class PostsRouter {
       this._controller.allPosts(req, res)
     });
 
-    this._router.get('/favorites/:id', (req: Request, res: Response, next: NextFunction) => {
-      this._controller.userFavorites(req, res)
-    });
-
-    this._router.get('/submissions/:id', (req: Request, res: Response, next: NextFunction) => {
-      this._controller.userSubmissions(req, res)
-    });
-
-    this._router.post('/:id/', (req: Request, res: Response, next: NextFunction) => {
+    this._router.post('/newPost', (req: Request, res: Response, next: NextFunction) => {
       this._controller.addPost(req, res)
     });
   }

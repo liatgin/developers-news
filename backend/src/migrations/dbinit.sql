@@ -89,7 +89,7 @@ VALUES ('a81bc81b-dead-4e5d-abff-90865d1e13b1', '0e37df36-f698-11e6-8dd4-cb9ced3
 INSERT INTO comments(comment_id, post_id, owner_id, owner_name, comment, post_title, time_of_creation, comment_to, src_comment_id) 
 VALUES ('b81bc81b-dead-4e5d-abff-90865d1e13b2', '0e37df36-f698-11e6-8dd4-cb9ced3df972', 'a81bc81b-dead-4e5d-abff-90865d1e13b1', 'Danny zukko', 'Thank you for sharing', 'Here They Come', '2021-01-01', 'post', NULL);
 
-INSERT INTO comments(comment_id, post_id, owner_id, ow0e37df36-f698-11e6-8dd4-cb9ced3df973ner_name, comment, post_title, time_of_creation, comment_to, src_comment_id) 
+INSERT INTO comments(comment_id, post_id, owner_id, owner_name, comment, post_title, time_of_creation, comment_to, src_comment_id) 
 VALUES ('c81bc81b-dead-4e5d-abff-90865d1e13b3', '0e37df36-f698-11e6-8dd4-cb9ced3df972', 'a81bc81b-dead-4e5d-abff-90865d1e13b4', 'Ali Mackbil', 'I learnt something new, tnx', 'Here They Come', '2021-01-01', 'comment', 'b81bc81b-dead-4e5d-abff-90865d1e13b2');
 
 INSERT INTO comments(comment_id, post_id, owner_id, owner_name, comment, post_title, time_of_creation, comment_to, src_comment_id) 

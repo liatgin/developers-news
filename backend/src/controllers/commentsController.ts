@@ -12,7 +12,7 @@ class CommnetsController {
                 FROM comments
                 WHERE owner_id=$1
             `
-            const { rows } = await client.query(sql, [req.params.id]);
+            const { rows } = await client.query(sql, [req.params.userId]);
             const comments = rows;
 
             client.release();
@@ -37,7 +37,7 @@ class CommnetsController {
           FROM comments
           WHERE post_id=$1
         `
-        const { rows } = await client.query(sql, [req.params.id]);
+        const { rows } = await client.query(sql, [req.params.userId]);
         const comments = rows;
 
         client.release();

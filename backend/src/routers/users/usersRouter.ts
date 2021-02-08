@@ -17,12 +17,27 @@ class UsersRouter {
    * Connect routes to their matching controller endpoints.
    */
   private _configure() {
+
+    this._router.get('/getUser/:usrName/', (req: Request, res: Response, next: NextFunction) => {
+      this._controller.getUser(req, res)
+    });
+
     this._router.post('/newUser', (req: Request, res: Response, next: NextFunction) => {
       this._controller.newUser(req, res)
     });
 
-    this._router.post('/newFavoritePost/:id', (req: Request, res: Response, next: NextFunction) => {
+    this._router.put('/newFavoritePost/:usrId/:favoritePostId', (req: Request, res: Response, next: NextFunction) => {
       this._controller.newFavoritePost(req, res)
+    });
+
+    this._router.get('/userFavorites/:usrId', (req: Request, res: Response, next: NextFunction) => {
+      console.log('in favorites routing')
+      this._controller.userFavorites(req, res)
+    });
+
+    this._router.get('/submissions/:usrId', (req: Request, res: Response, next: NextFunction) => {
+      console.log('submission routiong OK')
+      this._controller.userSubmissions(req, res)
     });
   }
 }
