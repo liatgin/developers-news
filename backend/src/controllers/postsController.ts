@@ -16,7 +16,6 @@ class PostsController {
             `
             const { rows } = await client.query(sql);
             const allPosts = rows;
-            console.log('%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%');
             client.release();
             res.header("Access-Control-Allow-Origin", "*");
             res.header("Access-Control-Allow-Methods", "GET,HEAD,OPTIONS,POST,PUT");
@@ -33,18 +32,19 @@ class PostsController {
     public async addPost(req: any, res: any) {
       try {
           const client = await pool.connect();
-
+          const body = JSON.parse(Object.entries(req.body)[0][0])
           const sql = `
-            INSERT INTO posts(post_id, link, time_written, owner_id, owner_name, title) 
+            INSERT INTO posts(post_id, link, time_written, owner_id, owner_name, title)
             VALUES ($1, $2, $3, $4, $5, $6) 
           `
-          const { rows } = await client.query(sql, [uuid(), req.url, new Date(), req.owner_id, req.owner_name, req.title]);
+          const { rows } = await client.query(sql, [uuid(), body.url, new Date(), body.owner_id, body.owner_name, body.title]);
           const newPost = rows;
+          console.log('rowssss', rows)
 
           client.release();
           res.header("Access-Control-Allow-Origin", "*");
           res.header("Access-Control-Allow-Methods", "GET,HEAD,OPTIONS,POST,PUT");
-          res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, x-client-key, x-client-token, x-client-secret, Authorization");
+          res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, x-client-key, x-client-token, x-client-secret, Authorization, Content-Language");
           res.status(200).json(newPost);
 
       } catch (error) {

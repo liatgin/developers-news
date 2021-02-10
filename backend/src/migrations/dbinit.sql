@@ -84,34 +84,34 @@ CREATE TABLE comments
 );
 
 INSERT INTO comments(comment_id, post_id, owner_id, owner_name, comment, post_title, time_of_creation, comment_to, src_comment_id) 
-VALUES ('a81bc81b-dead-4e5d-abff-90865d1e13b1', '0e37df36-f698-11e6-8dd4-cb9ced3df971', 'a81bc81b-dead-4e5d-abff-90865d1e13b1', 'Sami', 'Great post', 'Severe weather Europe', '2021-01-01', 'post', NULL);
+VALUES ('a81bc81b-dead-4e5d-abff-90865d1e13a1', '0e37df36-f698-11e6-8dd4-cb9ced3df971', 'a81bc81b-dead-4e5d-abff-90865d1e13b1', 'SQLqueen', 'Great post', 'Severe weather Europe', '2021-01-01', 'post', NULL);
 
 INSERT INTO comments(comment_id, post_id, owner_id, owner_name, comment, post_title, time_of_creation, comment_to, src_comment_id) 
-VALUES ('b81bc81b-dead-4e5d-abff-90865d1e13b2', '0e37df36-f698-11e6-8dd4-cb9ced3df972', 'a81bc81b-dead-4e5d-abff-90865d1e13b1', 'Danny zukko', 'Thank you for sharing', 'Here They Come', '2021-01-01', 'post', NULL);
+VALUES ('b81bc81b-dead-4e5d-abff-90865d1e13b2', '0e37df36-f698-11e6-8dd4-cb9ced3df972', 'a81bc81b-dead-4e5d-abff-90865d1e13b1', 'SQLqueen', 'Thank you for sharing', 'Here They Come', '2021-01-01', 'post', NULL);
 
 INSERT INTO comments(comment_id, post_id, owner_id, owner_name, comment, post_title, time_of_creation, comment_to, src_comment_id) 
-VALUES ('c81bc81b-dead-4e5d-abff-90865d1e13b3', '0e37df36-f698-11e6-8dd4-cb9ced3df972', 'a81bc81b-dead-4e5d-abff-90865d1e13b4', 'Ali Mackbil', 'I learnt something new, tnx', 'Here They Come', '2021-01-01', 'comment', 'b81bc81b-dead-4e5d-abff-90865d1e13b2');
+VALUES ('c81bc81b-dead-4e5d-abff-90865d1e13b3', '0e37df36-f698-11e6-8dd4-cb9ced3df972', 'a81bc81b-dead-4e5d-abff-90865d1e13b4', 'lll1999', 'I learnt something new, tnx', 'Here They Come', '2021-01-01', 'comment', 'b81bc81b-dead-4e5d-abff-90865d1e13b2');
 
 INSERT INTO comments(comment_id, post_id, owner_id, owner_name, comment, post_title, time_of_creation, comment_to, src_comment_id) 
-VALUES ('d81bc81b-dead-4e5d-abff-90865d1e13b4', '0e37df36-f698-11e6-8dd4-cb9ced3df972', 'a81bc81b-dead-4e5d-abff-90865d1e13b3', 'Dalay Lama', 'I disagree with the article but interesting point of view', 'Here They Come', '2021-01-01', 'comment', 'b81bc81b-dead-4e5d-abff-90865d1e13b2');
+VALUES ('d81bc81b-dead-4e5d-abff-90865d1e13b4', '0e37df36-f698-11e6-8dd4-cb9ced3df972', 'a81bc81b-dead-4e5d-abff-90865d1e13b3', 'pug&bug', 'I disagree with the article but interesting point of view', 'Here They Come', '2021-01-01', 'comment', 'b81bc81b-dead-4e5d-abff-90865d1e13b2');
 
 INSERT INTO comments(comment_id, post_id, owner_id, owner_name, comment, post_title, time_of_creation, comment_to, src_comment_id) 
-VALUES ('e81bc81b-dead-4e5d-abff-90865d1e13b5', '0e37df36-f698-11e6-8dd4-cb9ced3df972', 'a81bc81b-dead-4e5d-abff-90865d1e13b5', 'Ervin', 'Awesome news!', 'Here They Come', '2021-01-01', 'comment', 'b81bc81b-dead-4e5d-abff-90865d1e13b2');
+VALUES ('e81bc81b-dead-4e5d-abff-90865d1e13b5', '0e37df36-f698-11e6-8dd4-cb9ced3df972', 'a81bc81b-dead-4e5d-abff-90865d1e13b5', 'Abigooligool', 'Awesome news!', 'Here They Come', '2021-01-01', 'comment', 'b81bc81b-dead-4e5d-abff-90865d1e13b2');
 
 INSERT INTO comments(comment_id, post_id, owner_id, owner_name, comment, post_title, time_of_creation, comment_to, src_comment_id) 
-VALUES ('f81bc81b-dead-4e5d-abff-90865d1e13b6', '0e37df36-f698-11e6-8dd4-cb9ced3df911', 'a81bc81b-dead-4e5d-abff-90865d1e13b4', 'Trump', 'Very interesting', 'This Platform Is The Enemy', '2021-01-01', 'post', NULL);
+VALUES ('f81bc81b-dead-4e5d-abff-90865d1e13b6', '0e37df36-f698-11e6-8dd4-cb9ced3df911', 'a81bc81b-dead-4e5d-abff-90865d1e13b4', 'lll1999', 'Very interesting', 'This Platform Is The Enemy', '2021-01-01', 'post', NULL);
 
 INSERT INTO comments(comment_id, post_id, owner_id, owner_name, comment, post_title, time_of_creation, comment_to, src_comment_id) 
-VALUES ('b81bc81b-dead-4e5d-abff-90865d1e13b7', '0e37df36-f698-11e6-8dd4-cb9ced3df911', 'a81bc81b-dead-4e5d-abff-90865d1e13b2', 'Violino', 'Thanks', 'This Platform Is The Enemy', '2021-01-01', 'comment', 'f81bc81b-dead-4e5d-abff-90865d1e13b6');
+VALUES ('b81bc81b-dead-4e5d-abff-90865d1e13b7', '0e37df36-f698-11e6-8dd4-cb9ced3df911', 'a81bc81b-dead-4e5d-abff-90865d1e13b2', 'cocoMan23', 'Thanks', 'This Platform Is The Enemy', '2021-01-01', 'comment', 'f81bc81b-dead-4e5d-abff-90865d1e13b6');
 
 INSERT INTO comments(comment_id, post_id, owner_id, owner_name, comment, post_title, time_of_creation, comment_to, src_comment_id) 
-VALUES ('a81bc81b-dead-4e5d-abff-90865d1e13b8', '0e37df36-f698-11e6-8dd4-cb9ced3df911', 'a81bc81b-dead-4e5d-abff-90865d1e13b6', 'TamTam', 'Wow', 'This Platform Is The Enemy', '2021-01-01', 'comment', 'b81bc81b-dead-4e5d-abff-90865d1e13b7');
+VALUES ('a81bc81b-dead-4e5d-abff-90865d1e13b8', '0e37df36-f698-11e6-8dd4-cb9ced3df911', 'a81bc81b-dead-4e5d-abff-90865d1e13b6', 'hacker1991', 'Wow', 'This Platform Is The Enemy', '2021-01-01', 'comment', 'b81bc81b-dead-4e5d-abff-90865d1e13b7');
 
 INSERT INTO comments(comment_id, post_id, owner_id, owner_name, comment, post_title, time_of_creation, comment_to, src_comment_id) 
-VALUES ('a81bc81b-dead-4e5d-abff-90865d1e13b9', '0e37df36-f698-11e6-8dd4-cb9ced3df976', 'a81bc81b-dead-4e5d-abff-90865d1e13b1', 'Romy', 'SHIGAON', 'USBQ Toolkit', '2020-01-01', 'post', NULL);
+VALUES ('a81bc81b-dead-4e5d-abff-90865d1e13b9', '0e37df36-f698-11e6-8dd4-cb9ced3df976', 'a81bc81b-dead-4e5d-abff-90865d1e13b1', 'SQLqueen', 'SHIGAON', 'USBQ Toolkit', '2020-01-01', 'post', NULL);
 
 INSERT INTO comments(comment_id, post_id, owner_id, owner_name, comment, post_title, time_of_creation, comment_to, src_comment_id) 
-VALUES ('a81bc81b-dead-4e5d-abff-90865d1e1399', '0e37df36-f698-11e6-8dd4-cb9ced3df979', 'a81bc81b-dead-4e5d-abff-90865d1e13b4', 'Moses', 'LOL', 'The Clean Network', '2021-01-01', 'post', NULL);
+VALUES ('a81bc81b-dead-4e5d-abff-90865d1e1399', '0e37df36-f698-11e6-8dd4-cb9ced3df979', 'a81bc81b-dead-4e5d-abff-90865d1e13b4', 'lll1999', 'LOL', 'The Clean Network', '2021-01-01', 'post', NULL);
 
 INSERT INTO comments(comment_id, post_id, owner_id, owner_name, comment, post_title, time_of_creation, comment_to, src_comment_id) 
-VALUES ('a81bc81b-dead-4e5d-abff-90865d1e1312', '0e37df36-f698-11e6-8dd4-cb9ced3df970', 'a81bc81b-dead-4e5d-abff-90865d1e13b3', 'Alfonso', 'IT WAS BORING', 'acm queue', '2021-01-01', 'post', NULL);
+VALUES ('a81bc81b-dead-4e5d-abff-90865d1e1312', '0e37df36-f698-11e6-8dd4-cb9ced3df970', 'a81bc81b-dead-4e5d-abff-90865d1e13b3', 'pug&bug', 'IT WAS BORING', 'acm queue', '2021-01-01', 'post', NULL);

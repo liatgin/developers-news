@@ -15,7 +15,6 @@ class UsersController {
           WHERE usr_name=$1
         `
         const { rows } = await client.query(sql, [req.params.usrName]);
-        console.log('%%%%%%%%%%%%%%%%%%%%%%%%%%%% user', rows, req.params.usrName)
         const user = rows;
 
         client.release();
@@ -33,12 +32,12 @@ class UsersController {
     public async newUser(req: any, res: any) {
       try {
           const client = await pool.connect();
-
+          const body = JSON.parse(Object.entries(req.body)[0][0])
           const sql = `
-            INSERT INTO posts(id, password, nickname, about, creation_time, favorites) 
+            INSERT INTO users(usr_id, usr_name, password, about, time_of_creation, favorites) 
             VALUES ($1, $2, $3, $4, $5, $6)
           `
-          const { rows } = await client.query(sql, [ uuid(), req.userName, req.password, '', new Date(), [] ]);
+          const { rows } = await client.query(sql, [uuid(), body.userName, body.password, 'hello there', new Date(), []]);
           const newUser = rows;
 
           client.release();
@@ -80,7 +79,6 @@ class UsersController {
     public async userFavorites(req: any, res: any) {
       try {
           const client = await pool.connect();
-          console.log('@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ in favorites')
             const favoritesPosts = `
               SELECT *
               FROM posts 
@@ -91,7 +89,6 @@ class UsersController {
             `
 
           const { rows } = await client.query(favoritesPosts, [req.params.usrId])
-          console.log('@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ fav posts', rows)
           const favoritePosts = rows
 
           client.release();

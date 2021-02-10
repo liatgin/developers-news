@@ -23,7 +23,7 @@ class PostsRouter {
     });
 
     this._router.post('/newPost', (req: Request, res: Response, next: NextFunction) => {
-      this._controller.addPost(req, res)
+     this._controller.addPost(req, res)
     });
   }
 }

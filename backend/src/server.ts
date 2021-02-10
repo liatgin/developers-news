@@ -17,8 +17,9 @@ class Server {
     }
 
     private config() {
+        
         this.app.use(bodyParser.urlencoded({ extended:true }));
-        this.app.use(bodyParser.json({ limit: '1mb' })); // 100kb default
+        this.app.use(bodyParser.json());
         this.app.use(cookieParser());
         this.app.use(passport.initialize());
         this.app.use(passport.session());
