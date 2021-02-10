@@ -23,13 +23,13 @@ export class SubmitComponent implements OnInit {
 
 
   onSubmitPost() {
-    // req.owner_id, 
-    // req.owner_name
+    const ownerId = 'a81bc81b-dead-4e5d-abff-90865d1e13b5'
+    const ownerName = 'Abigooligool'
     const newPost = {
       title: this.postForm.value.title,
       url: this.postForm.value.url,
-      owner_id: '',
-      owner_name: '',
+      owner_id: ownerId,
+      owner_name: ownerName,
     }
     console.log ('this.postForm.value', newPost)
     this.httpService.newPost(newPost)

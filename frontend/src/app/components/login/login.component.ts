@@ -41,7 +41,12 @@ export class LoginComponent implements OnInit {
 
   onSignUp() {
     console.log ('this.signUpForm.value', this.signUpForm.value)
-    this.httpService.createUser({})
+    // body.userName, body.password, 'hello there', new Date(), body.favorites
+    const newUser = {
+      userName: this.signUpForm.value.newUserName,
+      password: this.signUpForm.value.newPassword
+    }
+    this.httpService.createUser(newUser)
     .subscribe((data) => {
       console.log('after sign up:')
       console.log(data)

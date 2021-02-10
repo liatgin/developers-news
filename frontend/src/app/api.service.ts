@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { catchError, retry, map  } from 'rxjs/operators';
+import {Post} from './components/post/post.component';
 
 @Injectable({
   providedIn: 'root'
@@ -17,7 +18,13 @@ export class ApiService {
   }
 
   newPost(post): Observable<any> {
-    return this.http.post(`${this.apiUrl}/posts/newPost`, JSON.stringify(post), {responseType: 'text'})
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/x-www-form-urlencoded'
+      })
+    };
+    return this.http.post<Post>(`${this.apiUrl}/posts/newPost`, post, httpOptions)
+
   }
 
   postComments(postId): Observable<any> {
@@ -37,7 +44,13 @@ export class ApiService {
   }
 
   createUser(newUser): Observable<any> {
-    return this.http.post(`${this.apiUrl}/users/newUser`, JSON.stringify(newUser), {responseType: 'text'})
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/x-www-form-urlencoded'
+      })
+    };
+    console.log('**************************** new user', newUser )
+    return this.http.post(`${this.apiUrl}/users/newUser`, newUser, httpOptions)
   }
 
   userFavorites(userId): Observable<any> {

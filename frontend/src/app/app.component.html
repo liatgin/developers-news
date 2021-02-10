@@ -24,27 +24,27 @@
     <app-user-page *ngIf="isUserPageMode" [userName]=userName> </app-user-page>   
     </ng-template>
   </li>
-  <li [ngbNavItem]="2">
+  <!-- <li [ngbNavItem]="2">
     <a style="background-color: orange;" ngbNavLink>Comments</a>
     <ng-template ngbNavContent>
       <p>
         Exercitatio
       </p>
     </ng-template>
-  </li>
-  <li [ngbNavItem]="3">
+  </li> -->
+  <li [ngbNavItem]="2">
     <a style="background-color: orange;"ngbNavLink>Submit</a>
     <ng-template ngbNavContent>
       <app-submit></app-submit>
     </ng-template>
   </li>
-  <li [ngbNavItem]="4" class="nav-item ml-auto">
+  <li [ngbNavItem]="3" class="nav-item ml-auto">
     <a style="background-color: orange;" ngbNavLink class="nav-link" data-toggle="tab" href="#tab22" role="tab">Login</a>
     <ng-template ngbNavContent>
       <app-login></app-login>
     </ng-template>
   </li>
-  <li [ngbNavItem]="5"class="nav-item">
+  <li [ngbNavItem]="4"class="nav-item">
     <a style="background-color: orange;" ngbNavLink class="nav-link" data-toggle="tab" href="#tab33" role="tab">Logout</a>
     <ng-template ngbNavContent>
       <p>
