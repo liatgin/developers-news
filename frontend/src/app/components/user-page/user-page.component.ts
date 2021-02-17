@@ -2,6 +2,7 @@ import { Component, Input, Output, OnInit, EventEmitter } from '@angular/core';
 import { ApiService } from '../../api.service';
 import{ Comment } from '../comment/comment.component'
 import{ Post } from '../post/post.component'
+import * as moment from 'moment';
 
 export interface User {
   usr_id: string,
@@ -70,6 +71,11 @@ export class UserPageComponent implements OnInit {
         this.isUserPage = false
         this.isFavoritesPage = true
       })
+  }
+
+  timeChangeFormat(date) {
+    console.log(date)
+    return moment(date).fromNow()
   }
 
   getUserPage() {

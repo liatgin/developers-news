@@ -1,18 +1,28 @@
 <mat-card class="example-card">
-  <mat-list *ngIf='isUserPage'>
-      <mat-list-item style="margin-right: 1em;">User: {{user && user.usr_name}} </mat-list-item>
-      <mat-divider></mat-divider>
-      <mat-list-item>Created: {{user && user.time_of_creation}} </mat-list-item>
-      <mat-divider></mat-divider>
-      <mat-list-item>About: "{{user && user.about}}" </mat-list-item>
-      <mat-divider></mat-divider>
-      <button mat-button color="primary" (click)="getSubmissions()">Submissions</button>
-      <br>
-      <button mat-button color="primary" (click)="getComments()">Comments</button>
-      <br>
-      <button mat-button color="primary" (click)="getFavorites()">Favorites</button>
-  </mat-list>
-  
+  <!-- user details display -->
+  <table *ngIf='isUserPage' class="table table-striped">
+    <tbody>
+        <tr>
+          <td>User: </td>
+          <td>{{user && user.usr_name}}</td>
+        </tr>
+        <tr>
+          <td>Created: </td>
+          <td>{{timeChangeFormat(user.time_of_creation)}}</td>
+        </tr>
+        <tr>
+          <td>About:  </td>
+          <td>{{user && user.about}}</td>
+        </tr>
+        <button mat-button color="primary" (click)="getSubmissions()">Submissions</button>
+        <br>
+        <button mat-button color="primary" (click)="getComments()">Comments</button>
+        <br>
+        <button mat-button color="primary" (click)="getFavorites()">Favorites</button>
+    </tbody>
+  </table>
+
+
   <!-- comments display -->
   <table *ngIf="isCommentsPage" class="table table-striped">
       <tbody>
