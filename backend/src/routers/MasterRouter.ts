@@ -23,7 +23,7 @@ class MasterRouter {
    * Connect routes to their matching routers.
    */
   private _configure() {
-    this._router.use('/authentication', this.authRouter)
+    this._router.use('/auth', this.authRouter)
     this._router.use('/posts', this.postsRouter);
     this._router.use('/users', this.usersRouter);
     this._router.use('/comments', this.commentsRouter);

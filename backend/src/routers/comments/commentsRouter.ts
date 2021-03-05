@@ -25,7 +25,7 @@ class PostsRouter {
       this._controller.postComments(req, res)
     });
 
-    this._router.post('addComment/:postId', (req: Request, res: Response, next: NextFunction) => {
+    this._router.post('/:postId', (req: Request, res: Response, next: NextFunction) => {
       this._controller.addComment(req, res)
     });
   }

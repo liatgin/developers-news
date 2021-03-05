@@ -30,6 +30,10 @@ class UsersRouter {
       this._controller.newFavoritePost(req, res)
     });
 
+    this._router.put('/update/:usrId', (req: Request, res: Response, next: NextFunction) => {
+      this._controller.updateUserDetails(req, res)
+    });
+
     this._router.get('/userFavorites/:usrId', (req: Request, res: Response, next: NextFunction) => {
       console.log('in favorites routing')
       this._controller.userFavorites(req, res)

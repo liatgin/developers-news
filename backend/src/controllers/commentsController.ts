@@ -1,4 +1,5 @@
 import pool from '../dbconfig/dbconnector';
+import { v4 as uuid } from 'uuid';
 
 class CommnetsController {
 
@@ -16,9 +17,6 @@ class CommnetsController {
             const comments = rows;
 
             client.release();
-            res.header("Access-Control-Allow-Origin", "*");
-            res.header("Access-Control-Allow-Methods", "GET,HEAD,OPTIONS,POST,PUT");
-            res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, x-client-key, x-client-token, x-client-secret, Authorization");
             res.status(200).json(comments);
 
         } catch (error) {
@@ -41,9 +39,6 @@ class CommnetsController {
         const comments = rows;
 
         client.release();
-        res.header("Access-Control-Allow-Origin", "*");
-        res.header("Access-Control-Allow-Methods", "GET,HEAD,OPTIONS,POST,PUT");
-        res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, x-client-key, x-client-token, x-client-secret, Authorization");
         res.status(200).json(comments);
 
       } catch (error) {
@@ -55,18 +50,15 @@ class CommnetsController {
     public async addComment(req: any, res: any) {
       try {
           const client = await pool.connect();
-
+          const body = JSON.parse(Object.entries(req.body)[0][0])
           const sql = `
-            INSERT INTO posts(id, link, points, time_written, owner_id, title) 
-            VALUES ($1, $2, $3, $4, $5, $6, $7, $8)
+            INSERT INTO comments(comment_id, post_id, owner_id, owner_name, comment, post_title, time_of_creation, comment_to, src_comment_id)
+            VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9)
           `
-          const { rows } = await client.query(sql, [req.id, req.post_id, req.owner_id, req.comment, req.post_title, req.time, req.comment_to, req.src_id]);
+          const { rows } = await client.query(sql, [uuid(), body.post_id, body.owner_id, body.owner_name, body.comment, body.post_title, new Date(), body.comment_to, body.src_comment_id ? body.src_id: null]);
           const comment = rows;
 
           client.release();
-          res.header("Access-Control-Allow-Origin", "*");
-          res.header("Access-Control-Allow-Methods", "GET,HEAD,OPTIONS,POST,PUT");
-          res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, x-client-key, x-client-token, x-client-secret, Authorization");
           res.status(200).json(comment);
 
       } catch (error) {

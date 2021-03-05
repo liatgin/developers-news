@@ -55,19 +55,19 @@ INSERT INTO users(usr_id, usr_name, password, about, time_of_creation, favorites
 VALUES ('a81bc81b-dead-4e5d-abff-90865d1e13b1', 'SQLqueen', '123123123', 'I love reading books and think I am curious, nice, intersting, modest person', '2015-01-08', NULL);
 
 INSERT INTO users(usr_id, usr_name, password, about, time_of_creation, favorites) 
-VALUES ('a81bc81b-dead-4e5d-abff-90865d1e13b6', 'hacker1991', '123123123', 'I love traveling and think I am curious, nice, intersting, modest person', '2015-01-08', '{"0e37df36-f698-11e6-8dd4-cb9ced3df911"}');
+VALUES ('a81bc81b-dead-4e5d-abff-90865d1e13b6', 'hacker1991', '123123123', 'I love traveling and think I am curious, nice, intersting, modest person', '2016-01-02', '{"0e37df36-f698-11e6-8dd4-cb9ced3df911"}');
 
 INSERT INTO users(usr_id, usr_name, password, about, time_of_creation, favorites) 
-VALUES ('a81bc81b-dead-4e5d-abff-90865d1e13b2', 'cocoMan23', '123123123', 'Dogs are my gratest love especially Pugs. Love codig and learning new things', '2015-01-08', '{"0e37df36-f698-11e6-8dd4-cb9ced3df911", "0e37df36-f698-11e6-8dd4-cb9ced3df975"}');
+VALUES ('a81bc81b-dead-4e5d-abff-90865d1e13b2', 'cocoMan23', '123123123', 'Dogs are my gratest love especially Pugs. Love codig and learning new things', '2017-01-03', '{"0e37df36-f698-11e6-8dd4-cb9ced3df911", "0e37df36-f698-11e6-8dd4-cb9ced3df975"}');
 
 INSERT INTO users(usr_id, usr_name, password, about, time_of_creation, favorites) 
-VALUES ('a81bc81b-dead-4e5d-abff-90865d1e13b3', 'pug&bug', '123123123', 'Hey all.. I am wondering where did we come from', '2015-01-08', '{"0e37df36-f698-11e6-8dd4-cb9ced3df971", "0e37df36-f698-11e6-8dd4-cb9ced3df978", "0e37df36-f698-11e6-8dd4-cb9ced3df975", "0e37df36-f698-11e6-8dd4-cb9ced3df979"}');
+VALUES ('a81bc81b-dead-4e5d-abff-90865d1e13b3', 'pug&bug', '123123123', 'Hey all.. I am wondering where did we come from', '2018-01-09', '{"0e37df36-f698-11e6-8dd4-cb9ced3df971", "0e37df36-f698-11e6-8dd4-cb9ced3df978", "0e37df36-f698-11e6-8dd4-cb9ced3df975", "0e37df36-f698-11e6-8dd4-cb9ced3df979"}');
 
 INSERT INTO users(usr_id, usr_name, password, about, time_of_creation, favorites) 
-VALUES ('a81bc81b-dead-4e5d-abff-90865d1e13b4', 'lll1999', '123123123', 'My dream is to live in Paris', '2015-01-08', '{"0e37df36-f698-11e6-8dd4-cb9ced3df970", "0e37df36-f698-11e6-8dd4-cb9ced3df977"}');
+VALUES ('a81bc81b-dead-4e5d-abff-90865d1e13b4', 'lll1999', '123123123', 'My dream is to live in Paris', '2019-01-05', '{"0e37df36-f698-11e6-8dd4-cb9ced3df970", "0e37df36-f698-11e6-8dd4-cb9ced3df977"}');
 
 INSERT INTO users(usr_id, usr_name, password, about, time_of_creation, favorites) 
-VALUES ('a81bc81b-dead-4e5d-abff-90865d1e13b5', 'Abigooligool', '123123123', 'I love kickboxing and swimming. Live in Alaska its very cold here', '2015-01-08', '{"0e37df36-f698-11e6-8dd4-cb9ced3df971", "0e37df36-f698-11e6-8dd4-cb9ced3df975", "0e37df36-f698-11e6-8dd4-cb9ced3df979"}');
+VALUES ('a81bc81b-dead-4e5d-abff-90865d1e13b5', 'Abigooligool', '123123123', 'I love kickboxing and swimming. Live in Alaska its very cold here', '2020-01-07', '{"0e37df36-f698-11e6-8dd4-cb9ced3df971", "0e37df36-f698-11e6-8dd4-cb9ced3df975", "0e37df36-f698-11e6-8dd4-cb9ced3df979"}');
 
 
 CREATE TABLE comments

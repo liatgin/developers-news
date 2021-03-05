@@ -18,9 +18,6 @@ class UsersController {
         const user = rows;
 
         client.release();
-        res.header("Access-Control-Allow-Origin", "*");
-        res.header("Access-Control-Allow-Methods", "GET,HEAD,OPTIONS,POST,PUT");
-        res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, x-client-key, x-client-token, x-client-secret, Authorization");
         res.status(200).json(user);
 
     } catch (error) {
@@ -41,9 +38,6 @@ class UsersController {
           const newUser = rows;
 
           client.release();
-          res.header("Access-Control-Allow-Origin", "*");
-          res.header("Access-Control-Allow-Methods", "GET,HEAD,OPTIONS,POST,PUT");
-          res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, x-client-key, x-client-token, x-client-secret, Authorization");
           res.status(200).json(newUser);
 
       } catch (error) {
@@ -65,14 +59,36 @@ class UsersController {
           const newFavorite = rows;
 
           client.release();
-          res.header("Access-Control-Allow-Origin", "*");
-          res.header("Access-Control-Allow-Methods", "GET,HEAD,OPTIONS,POST,PUT");
-          res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, x-client-key, x-client-token, x-client-secret, Authorization");
           res.status(200).json(newFavorite);
           
       } catch (error) {
           res.status(400).send(error);
       }
+    }
+
+    public async updateUserDetails(req: any, res: any) {
+      try {
+        console.log('start',  req.params.usrId, JSON.parse(Object.entries(req.body)[0][0]) )
+
+        const client = await pool.connect();
+        const body = JSON.parse(Object.entries(req.body)[0][0])
+        const sql = `
+          UPDATE users
+          SET about = $1
+          WHERE usr_id =$2
+        `
+        console.log('before update query',body, body.about, req.params.usrId)
+        const { rows } = await client.query(sql, [body.about, req.params.usrId]);
+        console.log('after update query',rows)
+
+        const newFavorite = rows;
+
+        client.release();
+        res.status(200).json(newFavorite);
+        
+    } catch (error) {
+        res.status(400).send(error);
+    }
     }
 
     // get favorites of specific user
@@ -92,10 +108,6 @@ class UsersController {
           const favoritePosts = rows
 
           client.release();
-          res.header("Access-Control-Allow-Origin", "*");
-          res.header("Access-Control-Allow-Methods", "GET,HEAD,OPTIONS,POST,PUT");
-          res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, x-client-key, x-client-token, x-client-secret, Authorization");
-
           res.status(200).json(favoritePosts);
       } catch (error) {
           res.status(400).send(error);
@@ -113,13 +125,9 @@ class UsersController {
             WHERE owner_id=$1
           `
           const { rows } = await client.query(sql, [req.params.usrId]);
-          console.log('inside submissions******************************', 'req.params.usrId', req.params.usrId, rows)
           const submissions = rows;
 
           client.release();
-          res.header("Access-Control-Allow-Origin", "*");
-          res.header("Access-Control-Allow-Methods", "GET,HEAD,OPTIONS,POST,PUT");
-          res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, x-client-key, x-client-token, x-client-secret, Authorization");
           res.status(200).json(submissions);
 
       } catch (error) {
