@@ -1,9 +1,9 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output } from '@angular/core';
 import { ApiService } from './api.service';
 import { Post } from './components/post/post.component';
 import { Comment } from './components/comment/comment.component';
-import { User } from './components/user-page/user-page.component'
-
+import { FormBuilder } from '@angular/forms';
+import * as _ from "lodash";
 
 
 @Component({
@@ -12,6 +12,12 @@ import { User } from './components/user-page/user-page.component'
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
+
+  // TODO: move this to a new comments component
+  commentForm = this.formBuilder.group({
+    comment: ''
+  }); 
+
   posts: Post[]
   active = 1
   isPostsMode = true
@@ -20,29 +26,36 @@ export class AppComponent implements OnInit {
   postId: string
   comments: Comment[]
   userName
+  loggedUserName: string
+  loggedUserId: string
 
-  constructor(private httpService: ApiService) {}
+  constructor(private httpService: ApiService, private formBuilder: FormBuilder) {}
 
   ngOnInit() {
     console.log('inside app')
-      this.httpService.getPosts()
-        .subscribe((data) => {
-          console.log('posts:')
-          console.log(data)
-          this.posts = JSON.parse(data)
-          console.log(this.posts)
-        })
+    this.httpService.getPosts()
+      .subscribe((data) => {
+        this.posts = JSON.parse(data)['allPosts']
+        const userName = JSON.parse(data)['userName'] 
+        const loggedUsrId = JSON.parse(data)['userId']
+        if (userName) {
+          this.loggedUserName = userName
+          console.log('this.loggedUserName', this.loggedUserName)
+        }
+        if (loggedUsrId) {
+          this.loggedUserId = loggedUsrId
+          console.log('this.loggedUserId', this.loggedUserId)
+
+        }
+      })
   }
 
-
-  getComments(postId) {
+  getComments(postID) {
     this.isPostsMode = false
     this.isCommentsMode = true
-    console.log('this.postId', postId)
-    this.httpService.postComments(postId)
+    this.postId = postID
+    this.httpService.postComments(postID)
         .subscribe((data) => {
-          console.log('comments:')
-          console.log(data)
           this.comments = JSON.parse(data)
         })
   }
@@ -51,13 +64,35 @@ export class AppComponent implements OnInit {
     this.userName = userName
     this.isPostsMode = false
     this.isUserPageMode = true
-    console.log('this.ownerName', userName)
-    // this.httpService.getUser(userName)
-    // .subscribe((data) => {
-    //   console.log('user:')
-    //   console.log(data)
-    //   this.user = JSON.parse(data)
-    // })
+  }
+
+  logout() {
+    localStorage.removeItem('access_token');
+  }
+
+  isUserLoggedIn(): boolean {
+    return this.httpService.loggedIn
+  }
+
+  setLoggedUserName(loggedUsrName) {
+    this.loggedUserName = loggedUsrName
+  }
+
+  onAddComment() {
+    const postToComment = _.find(this.posts, { 'post_id': this.postId});
+    const data = {
+      post_id: this.postId,
+      comment: this.commentForm.value.comment,
+      owner_id: this.loggedUserId,
+      owner_name: this.loggedUserName, 
+      post_title: postToComment.title,
+      comment_to: 'post'
+    }
+    console.log('data', data)
+    this.httpService.addComment(data)
+    .subscribe((data) => {
+      console.log('after adding new commewnt', data)  
+    })
   }
 
 }

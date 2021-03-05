@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import {ApiService} from '../../api.service';
 
@@ -9,8 +9,11 @@ import {ApiService} from '../../api.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
+ @Input() loggedUserName
+ @Output() onUserLogin = new EventEmitter<string>();
  hideLoginPassword = true
  hideSignUpPassword = true
+ userName
 
  loginForm = this.formBuilder.group({
     userName: '',
@@ -29,13 +32,14 @@ export class LoginComponent implements OnInit {
 
   onLogin() {
     console.log ('this.loginForm.value', this.loginForm.value)
-    this.httpService.getUser({userName: this.loginForm.value.userName , password: this.loginForm.value.password })
-    .subscribe((data) => {
-      let user;
-      user = JSON.parse(data)
-      console.log('after login:', user)
-      console.log(data)
-    })
+    this.userName = this.loginForm.value.userName
+    this.httpService.login(this.loginForm.value.userName, this.loginForm.value.password)
+      .subscribe((result) => {
+        localStorage.setItem('access_token', result.token);
+        console.log('response after login: ', result)
+        console.log('this.userName ', this.userName)
+        this.onUserLogin.emit(this.userName)
+      });
     this.loginForm.reset()
   }
 
@@ -52,6 +56,10 @@ export class LoginComponent implements OnInit {
       console.log(data)
     })
     this.signUpForm.reset()
+  }
+
+  isUserLoggedIn(): boolean {
+    return this.httpService.loggedIn
   }
 
 }

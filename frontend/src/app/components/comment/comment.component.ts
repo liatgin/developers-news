@@ -1,5 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import * as moment from 'moment';
+import { ApiService } from '../../api.service';
+
 
 export interface Comment {
   comment_id: string; 
@@ -23,6 +25,8 @@ export class CommentComponent implements OnInit {
   @Input() comment: Comment;
   @Input() commentIndex
 
+
+
   constructor() { }
 
   ngOnInit(): void {
@@ -32,5 +36,7 @@ export class CommentComponent implements OnInit {
   timeChangeFormat(date: Date) {
     return moment(date).fromNow()
   }
+
+
 
 }

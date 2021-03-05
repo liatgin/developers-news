@@ -12,6 +12,15 @@
       </table>
 
       <!-- display comments -->
+      <form *ngIf="isCommentsMode" [formGroup]="commentForm" (ngSubmit)="onAddComment()" class="example-form">
+        <textarea rows='5' cols="20" id='comment' wrap='virtual' type='text' matInput formControlName='comment'></textarea>
+        <br>
+        <button class="button" type="submit" mat-raised-button color="primary">Add Comment</button>
+      </form>
+      
+      <br>
+      <br>
+      
       <table *ngIf="isCommentsMode" class="table table-striped">
         <tbody>
           <tr *ngFor="let comment of comments; index as i">
@@ -21,7 +30,7 @@
       </table>
 
     <!-- display user page -->
-    <app-user-page *ngIf="isUserPageMode" [userName]=userName> </app-user-page>   
+    <app-user-page *ngIf="isUserPageMode" [userName]=userName [isEditMode]='isUserLoggedIn() && loggedUserName==userName'> </app-user-page>   
     </ng-template>
   </li>
   <!-- <li [ngbNavItem]="2">
@@ -32,20 +41,21 @@
       </p>
     </ng-template>
   </li> -->
-  <li [ngbNavItem]="2">
+  <li *ngIf='isUserLoggedIn()' [ngbNavItem]="2">
     <a style="background-color: orange;"ngbNavLink>Submit</a>
     <ng-template ngbNavContent>
-      <app-submit></app-submit>
+      <app-submit [loggedUserName]=loggedUserName [loggedUserId]=loggedUserId></app-submit>
     </ng-template>
   </li>
   <li [ngbNavItem]="3" class="nav-item ml-auto">
-    <a style="background-color: orange;" ngbNavLink class="nav-link" data-toggle="tab" href="#tab22" role="tab">Login</a>
+    <a *ngIf="!isUserLoggedIn()" style="background-color: orange;" ngbNavLink class="nav-link" data-toggle="tab" href="#tab22" role="tab">Login</a>
+    <a *ngIf="isUserLoggedIn()" style="background-color: orange;" ngbNavLink class="nav-link" data-toggle="tab" href="#tab22" role="tab">{{loggedUserName}}</a>
     <ng-template ngbNavContent>
-      <app-login></app-login>
+      <app-login (onUserLogin)=setLoggedUserName($event) [loggedUserName]=loggedUserName></app-login>
     </ng-template>
   </li>
   <li [ngbNavItem]="4"class="nav-item">
-    <a style="background-color: orange;" ngbNavLink class="nav-link" data-toggle="tab" href="#tab33" role="tab">Logout</a>
+    <a (click)="logout()" style="background-color: orange;" ngbNavLink class="nav-link" data-toggle="tab" href="#tab33" role="tab">Logout</a>
     <ng-template ngbNavContent>
       <p>
         Sed commodo, leo at suscipit dictum, quam est porttitor sapien

@@ -2,6 +2,7 @@ import { Component, Input, Output, OnInit, EventEmitter } from '@angular/core';
 import { ApiService } from '../../api.service';
 import{ Comment } from '../comment/comment.component'
 import{ Post } from '../post/post.component'
+import { FormBuilder } from '@angular/forms';
 import * as moment from 'moment';
 
 export interface User {
@@ -19,7 +20,13 @@ export interface User {
   styleUrls: ['./user-page.component.css']
 })
 export class UserPageComponent implements OnInit {
+
+  userDetailsForm = this.formBuilder.group({
+    about: ''
+  });  
+
   @Input() userName
+  @Input() isEditMode
   user: User
   isUserPage: boolean = true
   isSubmissionsPage: boolean = false
@@ -30,17 +37,18 @@ export class UserPageComponent implements OnInit {
   submissions: Post[]
   favorites: Post[]
 
-  constructor(private httpService: ApiService) { }
+  constructor(private httpService: ApiService, private formBuilder: FormBuilder) { }
 
   ngOnInit(): void {
     console.log('here is user', this.userName)
     console.log('this.ownerName', this.userName)
+    console.log('isEditMode', this.isEditMode, this.isUserPage  )
+    console.log('', )
     this.httpService.getUser(this.userName)
     .subscribe((data) => {
-      console.log('user:')
-      console.log(data)
+      console.log('user:', data)
       this.user = JSON.parse(data)[0]
-      console.log('user.usr_name', this.user.usr_name)
+      console.log('user', this.user)
     })
   }
 
@@ -74,11 +82,22 @@ export class UserPageComponent implements OnInit {
   }
 
   timeChangeFormat(date) {
-    console.log(date)
     return moment(date).fromNow()
   }
 
   getUserPage() {
+  }
+
+  onUpdate() {
+    console.log(' this.userDetailsForm.value.about',  this.userDetailsForm.value.about)
+    const about = this.userDetailsForm.value.about
+    console.log ('this.userDetailsForm.value', about)
+    this.httpService.userDetailsUpdate({about}, this.user.usr_id)
+      .subscribe((data) => {
+        console.log('after update user details:')
+        console.log(data)
+      })
+    this.userDetailsForm.reset()
   }
  
 }

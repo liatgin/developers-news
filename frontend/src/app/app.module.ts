@@ -9,7 +9,6 @@ import { PostComponent } from './components/post/post.component';
 import { UserPageComponent } from './components/user-page/user-page.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { CommentComponent } from './components/comment/comment.component';
-import { CommentsComponent } from './components/comments/comments.component';
 import { Routes, RouterModule } from '@angular/router';
 import { SubmitComponent } from './components/submit/submit.component';
 import { LoginComponent } from './components/login/login.component';
@@ -23,9 +22,9 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatListModule} from '@angular/material/list';
 
-const routes: Routes = [
-  {path: 'comments', component: CommentsComponent },
-];
+// const routes: Routes = [
+//   {path: 'comments', component: CommentsComponent },
+// ];
 
 @NgModule({
   declarations: [
@@ -34,7 +33,6 @@ const routes: Routes = [
     PostComponent,
     UserPageComponent,
     CommentComponent,
-    CommentsComponent,
     SubmitComponent,
     LoginComponent
   ],
@@ -53,7 +51,7 @@ const routes: Routes = [
     ReactiveFormsModule,
     MatCardModule,
     MatDividerModule,
-    [RouterModule.forRoot(routes)]
+    // [RouterModule.forRoot(routes)]
   ],
   exports: [RouterModule],
   providers: [],

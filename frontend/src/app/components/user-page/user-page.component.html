@@ -1,6 +1,6 @@
 <mat-card class="example-card">
-  <!-- user details display -->
-  <table *ngIf='isUserPage' class="table table-striped">
+  <!-- user details display not edit mode -->
+  <table *ngIf='isUserPage && !isEditMode' class="table table-striped">
     <tbody>
         <tr>
           <td>User: </td>
@@ -8,7 +8,7 @@
         </tr>
         <tr>
           <td>Created: </td>
-          <td>{{timeChangeFormat(user.time_of_creation)}}</td>
+          <td>{{user && timeChangeFormat(user.time_of_creation)}}</td>
         </tr>
         <tr>
           <td>About:  </td>
@@ -19,6 +19,40 @@
         <button mat-button color="primary" (click)="getComments()">Comments</button>
         <br>
         <button mat-button color="primary" (click)="getFavorites()">Favorites</button>
+    </tbody>
+  </table>
+
+   <!-- user details display in edit mode -->
+  <table *ngIf='isUserPage && isEditMode' class="table table-striped">
+    <tbody>
+        <tr>
+          <td>User: </td>
+          <td>{{user && user.usr_name}}</td>
+        </tr>
+        <tr>
+          <td>Created: </td>
+          <td>{{user && timeChangeFormat(user.time_of_creation)}}</td>
+        </tr>
+        <tr>
+            <td>About: </td>
+            <td>
+              <form [formGroup]="userDetailsForm" (ngSubmit)="onUpdate()" class="example-form">
+                <textarea rows=5 id='about' wrap='virtual' type='text' matInput formControlName='about'>
+                  {{user?.about}}
+                </textarea>
+                <button class="button" type="submit" mat-raised-button color="primary">Update</button>
+              </form>
+            </td>
+        </tr>
+
+
+        <button mat-button color="primary" (click)="getSubmissions()">Submissions</button>
+        <br>
+        <button mat-button color="primary" (click)="getComments()">Comments</button>
+        <br>
+        <button mat-button color="primary" (click)="getFavorites()">Favorites</button>
+        <br>
+        <!-- <button *ngIf='isEditMode' mat-button color="primary" (click)="updateDetails()">Update</button> -->
     </tbody>
   </table>
 

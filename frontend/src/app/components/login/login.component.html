@@ -1,6 +1,7 @@
-<mat-card class="example-card">
+<mat-card *ngIf="!isUserLoggedIn()"class="example-card">
     <mat-card-header>
-        <mat-card-title>Login</mat-card-title>
+        <mat-card-title *ngIf="!isUserLoggedIn()">Login</mat-card-title>
+        <mat-card-title *ngIf="isUserLoggedIn()">User Logged</mat-card-title>
     </mat-card-header>
     <form [formGroup]="loginForm" (ngSubmit)="onLogin()" class="example-form">
         <mat-form-field class="example-full-width">
@@ -23,7 +24,7 @@
 <br>
 
 
-<mat-card class="example-card">
+<mat-card  *ngIf="!isUserLoggedIn()" class="example-card">
     <mat-card-header>
         <mat-card-title>Sign Up</mat-card-title>
     </mat-card-header>
@@ -44,3 +45,5 @@
         <button class="button" type="submit" mat-raised-button color="primary">Create Account</button>
     </form>
 </mat-card>
+
+<app-user-page *ngIf="isUserLoggedIn()" [userName]=loggedUserName [isEditMode]=true></app-user-page>

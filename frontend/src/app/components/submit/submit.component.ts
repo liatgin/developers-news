@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import {ApiService} from '../../api.service';
 import { FormBuilder } from '@angular/forms';
 
@@ -9,7 +9,8 @@ import { FormBuilder } from '@angular/forms';
   styleUrls: ['./submit.component.css']
 })
 export class SubmitComponent implements OnInit {
-
+  @Input() loggedUserName
+  @Input() loggedUserId
   postForm = this.formBuilder.group({
     title: '',
     url: '',
@@ -19,19 +20,22 @@ export class SubmitComponent implements OnInit {
   constructor(private httpService: ApiService, private formBuilder: FormBuilder) {}
 
   ngOnInit(): void {
+    console.log('in submit', this.loggedUserName, this.loggedUserId)
   }
 
 
   onSubmitPost() {
-    const ownerId = 'a81bc81b-dead-4e5d-abff-90865d1e13b5'
-    const ownerName = 'Abigooligool'
+    const ownerId = this.loggedUserId
+    const ownerName = this.loggedUserName
+    console.log('in submittt this.loggedUserId', this.loggedUserId)
+    console.log('in submittt this.loggedUserName', this.loggedUserName)
+
     const newPost = {
       title: this.postForm.value.title,
       url: this.postForm.value.url,
       owner_id: ownerId,
       owner_name: ownerName,
     }
-    console.log ('this.postForm.value', newPost)
     this.httpService.newPost(newPost)
     .subscribe((data) => {
       console.log('after new post submission:')
