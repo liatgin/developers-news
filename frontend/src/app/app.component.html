@@ -32,7 +32,7 @@
     </ng-template>
   </li>
 
-  
+
   <li *ngIf='isUserLoggedIn()' [ngbNavItem]="2">
     <a style="background-color: orange;"ngbNavLink>Submit</a>
     <ng-template ngbNavContent>
@@ -50,7 +50,7 @@
     <a (click)="logout()" style="background-color: orange;" ngbNavLink class="nav-link" data-toggle="tab" href="#tab33" role="tab">Logout</a>
     <ng-template ngbNavContent>
       <p>
-        Sed commodo, leo at suscipit dictum, quam est porttitor sapien
+        User Logged Out
       </p>
     </ng-template>
   </li>
