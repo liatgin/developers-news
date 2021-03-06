@@ -12,15 +12,13 @@
       </table>
 
       <!-- display comments -->
-      <form *ngIf="isCommentsMode" [formGroup]="commentForm" (ngSubmit)="onAddComment()" class="example-form">
+      <form *ngIf="isCommentsMode && isUserLoggedIn()" [formGroup]="commentForm" (ngSubmit)="onAddComment()" class="example-form">
         <textarea rows='5' cols="20" id='comment' wrap='virtual' type='text' matInput formControlName='comment'></textarea>
         <br>
         <button class="button" type="submit" mat-raised-button color="primary">Add Comment</button>
-      </form>
-      
-      <br>
-      <br>
-      
+      </form> 
+      <br *ngIf="isCommentsMode && isUserLoggedIn()">
+      <br *ngIf="isCommentsMode && isUserLoggedIn()">
       <table *ngIf="isCommentsMode" class="table table-striped">
         <tbody>
           <tr *ngFor="let comment of comments; index as i">
@@ -33,14 +31,8 @@
     <app-user-page *ngIf="isUserPageMode" [userName]=userName [isEditMode]='isUserLoggedIn() && loggedUserName==userName'> </app-user-page>   
     </ng-template>
   </li>
-  <!-- <li [ngbNavItem]="2">
-    <a style="background-color: orange;" ngbNavLink>Comments</a>
-    <ng-template ngbNavContent>
-      <p>
-        Exercitatio
-      </p>
-    </ng-template>
-  </li> -->
+
+  
   <li *ngIf='isUserLoggedIn()' [ngbNavItem]="2">
     <a style="background-color: orange;"ngbNavLink>Submit</a>
     <ng-template ngbNavContent>

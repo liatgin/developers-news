@@ -1,13 +1,9 @@
-import express, { Request, Application, Router } from 'express';
-import session from 'express-session';
+import express from 'express';
 import bodyParser from 'body-parser';
 import cookieParser from 'cookie-parser';
-import passport from 'passport';
 import MasterRouter from './routers/MasterRouter';
 import pool from './dbconfig/dbconnector';
-// import jwt from 'express-jwt';
 const expressJwt = require('express-jwt');
-// import jwtAuthz from 'express-jwt-authz';
 
 class Server {
     private app;
@@ -36,7 +32,7 @@ class Server {
         this.app.use(bodyParser.urlencoded({ extended:true }));
         this.app.use(bodyParser.json());
         // filter of unauthorized requests
-        this.app.use(expressJwt({secret: 'app-super-shared-secret', algorithms: ['HS256']}).unless({path: ['/api/auth/login']}));
+        this.app.use(expressJwt({secret: 'app-super-shared-secret', algorithms: ['HS256'], credentialsRequired: false}).unless({path: ['/api/auth/login']}));
         this.app.use(cookieParser());
     }
 
