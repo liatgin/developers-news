@@ -32,7 +32,6 @@ export class AppComponent implements OnInit {
   constructor(private httpService: ApiService, private formBuilder: FormBuilder) {}
 
   ngOnInit() {
-    console.log('inside app')
     this.httpService.getPosts()
       .subscribe((data) => {
         this.posts = JSON.parse(data)['allPosts']
@@ -40,12 +39,9 @@ export class AppComponent implements OnInit {
         const loggedUsrId = JSON.parse(data)['userId']
         if (userName) {
           this.loggedUserName = userName
-          console.log('this.loggedUserName', this.loggedUserName)
         }
         if (loggedUsrId) {
           this.loggedUserId = loggedUsrId
-          console.log('this.loggedUserId', this.loggedUserId)
-
         }
       })
   }
@@ -88,7 +84,6 @@ export class AppComponent implements OnInit {
       post_title: postToComment.title,
       comment_to: 'post'
     }
-    console.log('data', data)
     this.httpService.addComment(data)
     .subscribe((data) => {
       console.log('after adding new commewnt', data)  

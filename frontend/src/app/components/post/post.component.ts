@@ -34,7 +34,6 @@ export class PostComponent implements OnInit {
   }
 
   commentsRedirect() {
-    console.log('redirect to comments', this.post.post_id)
     this.commentsEvent.emit(this.post.post_id);
     // this.hideEvent.emit(true);
     // this.router.navigate(['comments'], {queryParams: {postId: this.post.post_id}})

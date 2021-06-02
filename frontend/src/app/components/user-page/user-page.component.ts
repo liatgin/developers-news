@@ -40,15 +40,10 @@ export class UserPageComponent implements OnInit {
   constructor(private httpService: ApiService, private formBuilder: FormBuilder) { }
 
   ngOnInit(): void {
-    console.log('here is user', this.userName)
-    console.log('this.ownerName', this.userName)
-    console.log('isEditMode', this.isEditMode, this.isUserPage  )
-    console.log('', )
     this.httpService.getUser(this.userName)
     .subscribe((data) => {
       console.log('user:', data)
       this.user = JSON.parse(data)[0]
-      console.log('user', this.user)
     })
   }
 
@@ -62,7 +57,6 @@ export class UserPageComponent implements OnInit {
   }
 
   getComments() {
-    console.log('usrId:', this.user.usr_id )
     this.httpService.userComments(this.user.usr_id)
       .subscribe((comments) => {
         this.comments = JSON.parse(comments)
@@ -74,7 +68,6 @@ export class UserPageComponent implements OnInit {
   getFavorites() {
     this.httpService.userFavorites(this.user.usr_id)
       .subscribe((favorites) => {
-        console.log('favorites', favorites )
         this.favorites = JSON.parse(favorites)
         this.isUserPage = false
         this.isFavoritesPage = true
@@ -89,13 +82,10 @@ export class UserPageComponent implements OnInit {
   }
 
   onUpdate() {
-    console.log(' this.userDetailsForm.value.about',  this.userDetailsForm.value.about)
     const about = this.userDetailsForm.value.about
-    console.log ('this.userDetailsForm.value', about)
     this.httpService.userDetailsUpdate({about}, this.user.usr_id)
       .subscribe((data) => {
-        console.log('after update user details:')
-        console.log(data)
+        console.log('after update user details:', data)
       })
     this.userDetailsForm.reset()
   }

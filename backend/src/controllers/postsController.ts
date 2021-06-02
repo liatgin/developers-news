@@ -8,7 +8,6 @@ class PostsController {
     public async allPosts(req: any, res: any) {
         try {
             let userName
-            console.log('before sql', req.user)
             let userId = req?.user?.userID
             const client = await pool.connect();
             if (userId) {
@@ -19,7 +18,6 @@ class PostsController {
               `
               const { rows } = await client.query(userNameSql, [userId]);
               userName = rows[0].usr_name
-              console.log('after query', userName, userName)
             }
             // TODO: limit number of posts
             const postsSql = `
@@ -31,7 +29,6 @@ class PostsController {
             client.release();
             res.status(200).json({allPosts, userName, userId});
         } catch (error) {
-          console.log('error is: ', error)
           res.status(400).send(error);
         }
     }
@@ -47,8 +44,6 @@ class PostsController {
           `
           const { rows } = await client.query(sql, [uuid(), body.url, new Date(), body.owner_id, body.owner_name, body.title]);
           const newPost = rows;
-          console.log('rowssss', rows)
-
           client.release();
           res.status(200).json(newPost);
 

@@ -36,8 +36,6 @@ export class LoginComponent implements OnInit {
     this.httpService.login(this.loginForm.value.userName, this.loginForm.value.password)
       .subscribe((result) => {
         localStorage.setItem('access_token', result.token);
-        console.log('response after login: ', result)
-        console.log('this.userName ', this.userName)
         this.onUserLogin.emit(this.userName)
       });
     this.loginForm.reset()
@@ -52,8 +50,7 @@ export class LoginComponent implements OnInit {
     }
     this.httpService.createUser(newUser)
     .subscribe((data) => {
-      console.log('after sign up:')
-      console.log(data)
+      console.log('after sign up:', data)
     })
     this.signUpForm.reset()
   }

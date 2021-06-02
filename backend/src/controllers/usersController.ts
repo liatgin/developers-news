@@ -68,8 +68,6 @@ class UsersController {
 
     public async updateUserDetails(req: any, res: any) {
       try {
-        console.log('start',  req.params.usrId, JSON.parse(Object.entries(req.body)[0][0]) )
-
         const client = await pool.connect();
         const body = JSON.parse(Object.entries(req.body)[0][0])
         const sql = `
@@ -77,12 +75,8 @@ class UsersController {
           SET about = $1
           WHERE usr_id =$2
         `
-        console.log('before update query',body, body.about, req.params.usrId)
         const { rows } = await client.query(sql, [body.about, req.params.usrId]);
-        console.log('after update query',rows)
-
         const newFavorite = rows;
-
         client.release();
         res.status(200).json(newFavorite);
         

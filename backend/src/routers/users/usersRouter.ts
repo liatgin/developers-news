@@ -35,12 +35,10 @@ class UsersRouter {
     });
 
     this._router.get('/userFavorites/:usrId', (req: Request, res: Response, next: NextFunction) => {
-      console.log('in favorites routing')
       this._controller.userFavorites(req, res)
     });
 
     this._router.get('/submissions/:usrId', (req: Request, res: Response, next: NextFunction) => {
-      console.log('submission routiong OK')
       this._controller.userSubmissions(req, res)
     });
   }

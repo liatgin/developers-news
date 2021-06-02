@@ -19,16 +19,11 @@ export class SubmitComponent implements OnInit {
 
   constructor(private httpService: ApiService, private formBuilder: FormBuilder) {}
 
-  ngOnInit(): void {
-    console.log('in submit', this.loggedUserName, this.loggedUserId)
-  }
-
+  ngOnInit() {}
 
   onSubmitPost() {
     const ownerId = this.loggedUserId
     const ownerName = this.loggedUserName
-    console.log('in submittt this.loggedUserId', this.loggedUserId)
-    console.log('in submittt this.loggedUserName', this.loggedUserName)
 
     const newPost = {
       title: this.postForm.value.title,
@@ -38,8 +33,7 @@ export class SubmitComponent implements OnInit {
     }
     this.httpService.newPost(newPost)
     .subscribe((data) => {
-      console.log('after new post submission:')
-      console.log(data)
+      console.log('after new post submission:', data)
     })
     this.postForm.reset()
   }

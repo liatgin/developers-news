@@ -26,7 +26,6 @@ export class ApiService {
   }
 
   getPosts(): Observable<any> {
-    console.log(this.createHttpHeaders('GET'))
     return this.http.get(`${this.apiUrl}/posts`, this.createHttpHeaders('GET'))
   }
 
@@ -72,7 +71,6 @@ export class ApiService {
   }
 
   userDetailsUpdate(about, userId): Observable<any> {
-    console.log('before userDetailsUpdate', about)
     return this.http.put(`${this.apiUrl}/users/update/${userId}`, about, this.createHttpHeaders('PUT'))
   }
 

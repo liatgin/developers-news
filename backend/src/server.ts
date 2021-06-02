@@ -19,7 +19,6 @@ class Server {
         // logging middleware
         this.app.use((req, res, next) => {
             const foo = `[${new Date().toISOString()}] ${req.method}:  ${req.url}`
-           console.log(foo)
            next()
         })
         // allow cross origin middleware

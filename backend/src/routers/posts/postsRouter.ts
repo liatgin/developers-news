@@ -18,7 +18,6 @@ class PostsRouter {
    */
   private _configure() {
     this._router.get('/', (req: Request, res: Response, next: NextFunction) => { 
-      console.log('inside posts')
       this._controller.allPosts(req, res)
     });
 
