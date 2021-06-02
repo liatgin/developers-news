@@ -1,8 +1,13 @@
 # developers-news
 Application that enables posts sharing and open discussions about them.
-Features: Sign-up/Login/Logout, submit posts, comment on posts, read other users posts and users details, edit users details. See users submissions, comments and favorite posts.
+
+Features: Sign-up/Login/Logout, submit posts, comment on posts, read other users posts and users details, edit users details
+
+One User can read other users submissions, comments and favorite posts
+
 TODO in the future: Unit testing for backend and frontend, Add admin user, UI improvements, add comments to comments in addition to comments on posts.
 Backend Stack: TypeScript, NodeJs, Docker, PostgresSQL
+
 Fronted Stack: TypeScript, Angular 6, css, materail, ng-bootstrap
 
 
