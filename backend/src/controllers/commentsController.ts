@@ -28,7 +28,6 @@ class CommnetsController {
     // get comments of a specific post
     public async postComments(req: any, res: any) {
       try {
-        console.log('inside comment $$$$$$$$$$$$$$$$')
         const client = await pool.connect();
         const sql = `
           SELECT * 
